@@ -1,0 +1,17 @@
+@import "../../../../assets/StyleSheets/variable";
+
+.rs-sidenav-item-active {
+  color: $primary-color !important;
+}
+
+.rs-dropdown-item-active {
+  color: $primary-color !important;
+}
+
+.rs-sidenav-nav .rs-dropdown .rs-dropdown-toggle {
+  font-size: 14px !important;
+}
+
+.rs-sidenav-default .rs-sidenav-default {
+  background-color: transparent !important;
+}

@@ -1,0 +1,48 @@
+@import '../../../../assets/StyleSheets/breakpoints';
+
+.appbar {
+  height: 4em;
+  box-shadow: none !important;
+  background-color: #ffffff !important;
+
+  @include breakpoints('lg') {
+    width: calc(100% - 240px) !important;
+    margin-left: 240px !important;
+  }
+  @include breakpoints('md') {
+    width: calc(100% - 240px) !important;
+    margin-left: 240px !important;
+  }
+
+  .hide-profile {
+    @include breakpoints('sm') {
+      display: none !important;
+    }
+    @include breakpoints('xs') {
+      display: none !important;
+    }
+
+    .header-profile {
+      width: 2.5em;
+      height: 2.5em;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+  }
+
+  .hide-menu {
+    @include breakpoints('lg') {
+      display: none !important;
+    }
+    @include breakpoints('md') {
+      display: none !important;
+    }
+  }
+}
+
+.content {
+  margin: 15px 15px 100px 15px;
+  @include breakpoints('xs') {
+    margin: 0;
+  }
+}

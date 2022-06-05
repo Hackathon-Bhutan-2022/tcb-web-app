@@ -1,0 +1,13 @@
+.background {
+  background-image: url("https://picsum.photos/id/755/1000/700");
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  .container-login {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 400px !important;
+    height: 100vh !important;
+  }
+}

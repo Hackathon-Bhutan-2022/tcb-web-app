@@ -1,0 +1,80 @@
+@import 'variable';
+@import 'breakpoints';
+
+.hand-cursor {
+  cursor: pointer !important
+}
+
+a {
+  color: $primary-color
+}
+
+.pull-right {
+  float: right
+}
+
+.pull-left {
+  float: left
+}
+
+.list-type {
+  list-style: none;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex !important
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end
+}
+
+.justify {
+  display: flex !important;
+  justify-content: center !important
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-between {
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+}
+
+.white-color {
+  color: $white_color !important
+}
+
+.dark-color {
+  color: $dark_color !important
+}
+
+.text-capitalize {
+  text-transform: capitalize !important
+}
+
+.upper-case {
+  text-transform: uppercase !important
+}
+
+.decoration-none {
+  text-decoration: none
+}
+
+.text-bold {
+  font-weight: 700 !important
+}
+
+.box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
+}
