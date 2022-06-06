@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import {makeStyles} from '@mui/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {SideBar} from './SideBar/SideBar';
-import {Outlet} from '@mui/icons-material';
 import ProtectedHeader from './Header/ProtectedHeader';
+import {Outlet} from 'react-router-dom';
 
 const useStyles = makeStyles(({
   root: {
