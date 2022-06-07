@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import * as Yup from 'yup';
 import {Button, Card, Container, InputAdornment, Typography} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
@@ -9,20 +9,31 @@ import LockIcon from '@mui/icons-material/Lock';
 import ButtonContained from '../../../common/CustomButtons/ButtonContained';
 import './Login.scss';
 import CottageIcon from '@mui/icons-material/Cottage';
+import {authServices} from '../../../services/AuthServices';
+import {DispatchContext} from '../../../store';
 
 const validateSchema = Yup.object().shape({
   email: Yup.string().required('Email cant be blank*').nullable(),
   password: Yup.string().required('Password cant be blank*').nullable(),
 });
+
 export default function Login() {
   const navigate = useNavigate();
-  return (
-    <div className="background">
-      <Container className="container-login" align={'center'}>
-        <Card className="box-shadow"
-              sx={{borderRadius: 1, pt: 5, pb: 5, pl: 2, pr: 2, backgroundColor: 'rgba(48, 47, 47, 0.3)'}}>
-          <Formik initialValues={{email: '', password: ''}}
-                  validationSchema={validateSchema}>
+  const dispatch = useContext(DispatchContext);
+
+  const onSubmit = (values, {setSubmitting}) => {
+    setSubmitting(false);
+    authServices('post', '/users/sign_in', {user: {...values}}, dispatch).then(res => {
+      navigate('/admin');
+    });
+  };
+
+  return (<div className="background">
+    <Container className="container-login" align={'center'}>
+      <Card className="box-shadow"
+            sx={{borderRadius: 1, pt: 5, pb: 5, pl: 2, pr: 2, backgroundColor: 'rgba(48, 47, 47, 0.3)'}}>
+        <Formik initialValues={{email: '', password: ''}} onSubmit={onSubmit}>
+          {({values, handleSubmit}) => (
             <Form>
               <Typography sx={{fontSize: 30, fontWeight: '700', color: '#fff'}}>Login Form</Typography>
               <Field component={TextField} sx={{mb: 1, mt: 1}} variant={'outlined'}
@@ -48,13 +59,9 @@ export default function Login() {
                      }}/>
               <Typography sx={{color: '#fff', fontSize: 14, mb: 1.5, mt: 0.5, cursor: 'pointer'}} align={'left'}>Forgot
                 password?</Typography>
-              <ButtonContained text={'login'} onClick={() => navigate('/admin')}/>
+              <Button className='buttonContained text-capitalize' type={'submit'}>Login</Button>
               <Button style={{
-                marginTop: 10,
-                backgroundColor: '#41ab03',
-                width: '100%',
-                color: 'white',
-                textTransform: 'none'
+                marginTop: 10, backgroundColor: '#41ab03', width: '100%', color: 'white', textTransform: 'none'
               }}
                       onClick={() => navigate('/sign-up')}>Don't have an account? Sign up</Button>
               <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 15}}
@@ -63,10 +70,9 @@ export default function Login() {
                 <Typography sx={{color: '#fff', fontSize: 14, ml: 1, cursor: 'pointer'}}
                             onClick={() => navigate('/')}>back to home</Typography>
               </div>
-            </Form>
-          </Formik>
-        </Card>
-      </Container>
-    </div>
-  );
+            </Form>)}
+        </Formik>
+      </Card>
+    </Container>
+  </div>);
 }

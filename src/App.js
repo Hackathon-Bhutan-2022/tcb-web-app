@@ -1,4 +1,6 @@
+import React, {useReducer} from 'react';
 import './App.css';
+import useCombinedReducers from 'use-combined-reducers';
 import {ThemeProvider} from '@mui/material/styles';
 import {theme} from './Theme';
 import {DispatchContext, StateContext} from './store';
@@ -10,15 +12,40 @@ import {protectedRoutes} from './routes/ProtectedRoutes';
 import {ProtectedMain} from './layouts/Admin/ProtectedMain/ProtectedMain';
 import Login from './components/Auth/Login/Login';
 import SignUp from './components/Auth/SignUp/SignUp';
+import {
+  initialUser,
+  loaderReducer,
+  loaderStateReducer,
+  loaderValue,
+  snackbarReducer,
+  snackbarValue,
+  userReducer
+} from './reducers';
+import {ApiUtils} from './utils/ApiUtils';
 
 function App() {
+  const [state, dispatch] = useCombinedReducers({
+    user: useReducer(userReducer, initialUser),
+    notifyMessage: useReducer(snackbarReducer, snackbarValue),
+    loader: useReducer(loaderReducer, loaderValue),
+    loaderState: useReducer(loaderStateReducer, true),
+  });
+
+  // const isRouteEnabled = (userData, authorized) => {
+  //   const dataList = userData?.data?.relationships?.roles?.data;
+  //   const roles = includedObjectList(dataList, userData?.included);
+  //   return authorized?.length === 0 ? true : (isAuthorized(roles, authorized));
+  // };
+
+  ApiUtils.dispatch = dispatch;
+  ApiUtils.state = state;
   return (
     <ThemeProvider theme={theme}>
-      <DispatchContext.Provider>
-        <StateContext.Provider>
+      <DispatchContext.Provider value={dispatch}>
+        <StateContext.Provider value={state}>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />}>
+              <Route path="/" element={<Home/>}>
                 {routes.length > 0 && routes.map((route, index) => (
                   <Route
                     key={index}
@@ -27,7 +54,7 @@ function App() {
                   />
                 ))}
               </Route>
-              <Route path="/admin" element={<ProtectedMain />}>
+              <Route path="/admin" element={<ProtectedMain/>}>
                 {protectedRoutes.map((route, index) => (
                   <Route
                     key={index}
