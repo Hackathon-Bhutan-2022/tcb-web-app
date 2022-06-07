@@ -10,7 +10,6 @@ export default function Home() {
       <main>
         <Outlet />
       </main>
-      <Footer />
     </React.Fragment>
   );
 }

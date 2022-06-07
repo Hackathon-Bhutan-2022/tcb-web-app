@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import {
   Container,
-  Paper, Switch,
+  IconButton,
+  Paper,
+  Switch,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead, TablePagination,
+  TableHead,
+  TablePagination,
   TableRow,
+  Tooltip,
   Typography
 } from '@mui/material';
 import {Images} from '../../../../common/Assets/Images';
 import Search from '../../../../common/Search/Search';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import {useNavigate} from 'react-router-dom';
 
 export const ListTravelAgent = () => {
   const [total, setTotal] = useState(0);
@@ -20,6 +26,7 @@ export const ListTravelAgent = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -42,15 +49,15 @@ export const ListTravelAgent = () => {
         <Search placeholder="Search..."/>
       </div>
       <TableContainer style={{borderRadius: 10}}>
-        <Table>
+        <Table size={'small'}>
           <TableHead style={{backgroundColor: '#F7F7F7'}}>
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Address</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Phome #</TableCell>
+              <TableCell>Phone #</TableCell>
               <TableCell>Added date</TableCell>
-              <TableCell colSpan={2}/>
+              <TableCell colSpan={3}/>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -67,11 +74,18 @@ export const ListTravelAgent = () => {
                 <Switch
                   checked={checked}
                   onChange={handleChange}
-                  inputProps={{ 'aria-label': 'controlled' }}
+                  inputProps={{'aria-label': 'controlled'}}
                 />
               </TableCell>
               <TableCell>
                 <DeleteForeverIcon color="warning"/>
+              </TableCell>
+              <TableCell onClick={()=> navigate('/admin/users/agents/1')}>
+                <Tooltip title={'Profile'}>
+                  <IconButton style={{backgroundColor: '#f5f4f4'}}>
+                    <ArrowForwardIcon color="success"/>
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -87,11 +101,18 @@ export const ListTravelAgent = () => {
                 <Switch
                   checked={checked}
                   onChange={handleChange}
-                  inputProps={{ 'aria-label': 'controlled' }}
+                  inputProps={{'aria-label': 'controlled'}}
                 />
               </TableCell>
               <TableCell>
                 <DeleteForeverIcon color="warning"/>
+              </TableCell>
+              <TableCell>
+                <Tooltip title={'Profile'}>
+                  <IconButton style={{backgroundColor: '#f5f4f4'}}>
+                    <ArrowForwardIcon color="success"/>
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           </TableBody>

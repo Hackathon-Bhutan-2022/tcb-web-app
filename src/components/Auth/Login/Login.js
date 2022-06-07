@@ -6,11 +6,11 @@ import {Field, Form, Formik} from 'formik';
 import {TextField} from 'formik-mui';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import ButtonContained from '../../../common/CustomButtons/ButtonContained';
 import './Login.scss';
 import CottageIcon from '@mui/icons-material/Cottage';
 import {authServices} from '../../../services/AuthServices';
 import {DispatchContext} from '../../../store';
+import SignUpSelection from '../SignUp/SignUpSelection';
 
 const validateSchema = Yup.object().shape({
   email: Yup.string().required('Email cant be blank*').nullable(),
@@ -18,6 +18,7 @@ const validateSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const dispatch = useContext(DispatchContext);
 
@@ -28,12 +29,21 @@ export default function Login() {
     });
   };
 
-  return (<div className="background">
-    <Container className="container-login" align={'center'}>
-      <Card className="box-shadow"
-            sx={{borderRadius: 1, pt: 5, pb: 5, pl: 2, pr: 2, backgroundColor: 'rgba(48, 47, 47, 0.3)'}}>
-        <Formik initialValues={{email: '', password: ''}} onSubmit={onSubmit}>
-          {({values, handleSubmit}) => (
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className="background">
+      <Container className="container-login" align={'center'}>
+        <Card className="box-shadow"
+              sx={{borderRadius: 1, pt: 5, pb: 5, pl: 2, pr: 2, backgroundColor: 'rgba(48, 47, 47, 0.3)'}}>
+          <Formik initialValues={{email: '', password: ''}} onSubmit={onSubmit}
+                  validationSchema={validateSchema}>
             <Form>
               <Typography sx={{fontSize: 30, fontWeight: '700', color: '#fff'}}>Login Form</Typography>
               <Field component={TextField} sx={{mb: 1, mt: 1}} variant={'outlined'}
@@ -59,11 +69,10 @@ export default function Login() {
                      }}/>
               <Typography sx={{color: '#fff', fontSize: 14, mb: 1.5, mt: 0.5, cursor: 'pointer'}} align={'left'}>Forgot
                 password?</Typography>
-              <Button className='buttonContained text-capitalize' type={'submit'}>Login</Button>
+              <Button className="buttonContained text-capitalize" type={'submit'}>Login</Button>
               <Button style={{
                 marginTop: 10, backgroundColor: '#41ab03', width: '100%', color: 'white', textTransform: 'none'
-              }}
-                      onClick={() => navigate('/sign-up')}>Don't have an account? Sign up</Button>
+              }} onClick={() => handleClickOpen()}>Don't have an account? Sign up</Button>
               <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 15}}
                    align={'center'}>
                 <CottageIcon sx={{color: '#fff'}}/>
@@ -71,8 +80,9 @@ export default function Login() {
                             onClick={() => navigate('/')}>back to home</Typography>
               </div>
             </Form>)}
-        </Formik>
-      </Card>
-    </Container>
-  </div>);
+          </Formik>
+        </Card>
+        <SignUpSelection open={open} handleAction={handleClose}/>
+      </Container>
+    </div>);
 }
