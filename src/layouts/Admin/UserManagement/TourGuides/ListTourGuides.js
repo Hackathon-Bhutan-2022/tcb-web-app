@@ -19,7 +19,7 @@ import Search from '../../../../common/Search/Search';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-export const ListTravelAgent = () => {
+export const ListTourGuides = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -51,10 +51,10 @@ export const ListTravelAgent = () => {
           <TableHead style={{backgroundColor: '#F7F7F7'}}>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Address</TableCell>
+              <TableCell>License No.</TableCell>
               <TableCell>Email</TableCell>
+              <TableCell>CID</TableCell>
               <TableCell>Phone #</TableCell>
-              <TableCell>Added date</TableCell>
               <TableCell colSpan={3}/>
             </TableRow>
           </TableHead>
@@ -62,39 +62,12 @@ export const ListTravelAgent = () => {
             <TableRow>
               <TableCell>
                 <img src={Images?.bannerImage} style={{width: 25, height: 25, borderRadius: 25}}
-                     alt=""/> <span style={{marginLeft: 5, color: 'gray'}}>Etho Meto Tour & Treks</span>
+                     alt=""/> <span style={{marginLeft: 5, color: 'gray'}}>Rinzin Norbu</span>
               </TableCell>
-              <TableCell style={{color: 'gray'}}>Taba, Thimphu</TableCell>
-              <TableCell style={{color: 'gray'}}>etometo@gmail.com</TableCell>
+              <TableCell style={{color: 'gray'}}>#12993</TableCell>
+              <TableCell style={{color: 'gray'}}>rinzinbht2018@gmail.com</TableCell>
+              <TableCell style={{color: 'gray'}}>1234567890</TableCell>
               <TableCell style={{color: 'gray'}}>+975-17971633</TableCell>
-              <TableCell style={{color: 'gray'}}>25/5/2022</TableCell>
-              <TableCell>
-                <Switch
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{'aria-label': 'controlled'}}
-                />
-              </TableCell>
-              <TableCell>
-                <DeleteForeverIcon color="warning"/>
-              </TableCell>
-              <TableCell>
-                <Tooltip title={'Profile'}>
-                  <IconButton style={{backgroundColor: '#f5f4f4'}}>
-                    <ArrowForwardIcon color="success"/>
-                  </IconButton>
-                </Tooltip>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <img src={Images?.bannerImage} style={{width: 25, height: 25, borderRadius: 25}}
-                     alt=""/> <span style={{marginLeft: 5, color: 'gray'}}>Etho Meto Tour & Treks</span>
-              </TableCell>
-              <TableCell style={{color: 'gray'}}>Olakha, Thimphu</TableCell>
-              <TableCell style={{color: 'gray'}}>etometo@gmail.com</TableCell>
-              <TableCell style={{color: 'gray'}}>+975-17971633</TableCell>
-              <TableCell style={{color: 'gray'}}>25/5/2022</TableCell>
               <TableCell>
                 <Switch
                   checked={checked}
