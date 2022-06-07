@@ -9,6 +9,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import ButtonContained from '../../../common/CustomButtons/ButtonContained';
 import './Login.scss';
 import CottageIcon from '@mui/icons-material/Cottage';
+import SignUpSelection from '../SignUp/SignUpSelection';
 
 const validateSchema = Yup.object().shape({
   email: Yup.string().required('Email cant be blank*').nullable(),
@@ -16,6 +17,16 @@ const validateSchema = Yup.object().shape({
 });
 export default function Login() {
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="background">
       <Container className="container-login" align={'center'}>
@@ -55,8 +66,7 @@ export default function Login() {
                 width: '100%',
                 color: 'white',
                 textTransform: 'none'
-              }}
-                      onClick={() => navigate('/sign-up')}>Don't have an account? Sign up</Button>
+              }} onClick={() => handleClickOpen()}>Don't have an account? Sign up</Button>
               <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 15}}
                    align={'center'}>
                 <CottageIcon sx={{color: '#fff'}}/>
@@ -66,6 +76,7 @@ export default function Login() {
             </Form>
           </Formik>
         </Card>
+        <SignUpSelection open={open} handleAction={handleClose}/>
       </Container>
     </div>
   );
