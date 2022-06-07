@@ -46,6 +46,13 @@ export const pages = [
     icon: <Calendar />,
     children: [
       {
+        title: 'Itinerary',
+        href: '/admin/activities/itinerary',
+        visible: true,
+        index: 1,
+        authorized: 'false',
+      },
+      {
         title: 'Announcements',
         href: '/admin/activities/announcements',
         visible: true,
@@ -57,6 +64,20 @@ export const pages = [
         href: '/admin/users/tour-guides',
         visible: true,
         index: 2,
+        authorized: 'false',
+      },
+      {
+        title: 'Calender',
+        href: '/admin/users/calender',
+        visible: true,
+        index: 3,
+        authorized: 'false',
+      },
+      {
+        title: 'Track Vehicles',
+        href: '/admin/users/vehicle',
+        visible: true,
+        index: 4,
         authorized: 'false',
       },
     ]
