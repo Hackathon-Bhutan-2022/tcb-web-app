@@ -67,36 +67,6 @@ export default function Header(props) {
             <Nav className='flex list-type' navbar>
               <NavItem>
                 <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Tailor My Trip</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Places to Visit</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Things to do</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Travel Packages</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Festival Calendar</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Souvenirs & Gifts</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
                   <Typography className='header-mr' color="secondary">Travel Blogs</Typography>
                 </NavLink>
               </NavItem>
