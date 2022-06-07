@@ -52,7 +52,7 @@ const SideNavBar = props => {
                 </Dropdown>
                 :
                 <Nav.Item eventKey={page.index} icon={page?.icon} key={index}
-                          style={{textDecoration: 'none', fontSize: 14, backgroundColor: '#373856', color: '#A0A1AC'}}
+                          style={{textDecoration: 'none', fontSize: 14, color: '#A0A1AC'}}
                           onClick={() => navigationDetail(page.href, page?.index)}>
                   {page?.title}
                 </Nav.Item>

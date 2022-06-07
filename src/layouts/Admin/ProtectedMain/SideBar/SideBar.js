@@ -1,5 +1,5 @@
 import React from 'react';
-import {Drawer} from '@mui/material';
+import {Drawer, Typography} from '@mui/material';
 import clsx from 'clsx';
 import {useStyle} from './SideBarStyle';
 import SideNavBar from '../SideNavBar/SideNavBar';
@@ -7,7 +7,7 @@ import {pages} from './SideBarPages';
 import {useNavigate} from 'react-router-dom';
 import {Images} from '../../../../common/Assets/Images';
 
-const drawerWidth = 240;
+const drawerWidth = 245;
 
 export const SideBar = props => {
   const {open, variant, onClose, className, children, ...rest} = props;
@@ -24,7 +24,7 @@ export const SideBar = props => {
         '& .MuiDrawer-paper': {
           width: drawerWidth,
           boxSizing: 'border-box',
-          backgroundColor: '#373856'
+          backgroundColor: '#EEEFEF'
         },
       }}
       variant={variant}
@@ -36,8 +36,12 @@ export const SideBar = props => {
         {...rest}
         className={clsx(classes.root, className)}
       >
-        <div className='justify mt-3 hand-cursor' onClick={() => navigate('/')}>
-          <img className={classes.lagthaLogo} src={Images.logo} alt="tourism logo"/>
+        <div className={classes.profile} onClick={() => navigate('/')}>
+          <img className={classes.lagthaLogo} src={Images.defaultProfile} alt="tourism logo"/>
+          <div>
+            <Typography className={classes.profileName}>Karma Wangchuk</Typography>
+            <Typography className={classes.role}>Admin</Typography>
+          </div>
         </div>
         <SideNavBar
           activeKey={activeKey}

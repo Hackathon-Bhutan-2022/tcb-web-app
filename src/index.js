@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import 'rsuite/styles/index.less'; // or 'rsuite/dist/rsuite.min.css'
+import 'rsuite/dist/rsuite.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
