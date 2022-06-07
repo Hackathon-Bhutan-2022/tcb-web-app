@@ -5,6 +5,8 @@ import {ListAnnouncement} from '../layouts/Admin/Activities/Announcement/ListAnn
 import TravelAgentDetail from '../layouts/Admin/UserManagement/TravelAgent/TravelAgentDetail';
 import Calender from '../layouts/Admin/Activities/Calender/Calender';
 import TrackVehicle from '../layouts/Admin/Activities/TrackVehicle/TrackVehicle';
+import Itinerary from '../layouts/Admin/Activities/Itinerary/Itinerary';
+import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDetail';
 
 export const protectedRoutes = [
   {
@@ -29,7 +31,13 @@ export const protectedRoutes = [
     primaryText: 'Itinerary',
     path: '/admin/activities/itinerary',
     authorized: [''],
-    component: <ListTourGuides />,
+    component: <Itinerary />,
+  },
+  {
+    primaryText: 'Itinerary Detail',
+    path: '/admin/activities/itinerary-detail',
+    authorized: [''],
+    component: <ItineraryDetail />,
   },
   {
     primaryText: 'Announcement list',
