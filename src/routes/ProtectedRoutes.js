@@ -1,5 +1,6 @@
 import Dashboard from '../layouts/Admin/Dashboard/Dashboard';
 import {ListTravelAgent} from '../layouts/Admin/UserManagement/TravelAgent/ListTravelAgent';
+import TravelAgentDetail from '../layouts/Admin/UserManagement/TravelAgent/TravelAgentDetail';
 
 export const protectedRoutes = [
   {
@@ -10,8 +11,14 @@ export const protectedRoutes = [
   },
   {
     primaryText: 'Travel agent list',
-    path: '/admin/users/travel-agent',
+    path: '/admin/users/agents',
     authorized: [''],
     component: <ListTravelAgent />,
+  },
+  {
+    primaryText: 'Travel Agent Detail',
+    path: '/admin/users/agents/:id',
+    authorized: [''],
+    component: <TravelAgentDetail />,
   },
 ];

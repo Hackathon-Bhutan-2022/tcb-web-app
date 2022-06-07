@@ -21,7 +21,7 @@ export const pages = [
     children: [
       {
         title: 'Travel Agent',
-        href: '/admin/users/travel-agent',
+        href: '/admin/users/agents',
         visible: true,
         index: 1,
         authorized: 'false',

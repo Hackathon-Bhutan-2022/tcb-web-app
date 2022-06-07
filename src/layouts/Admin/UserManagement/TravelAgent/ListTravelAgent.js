@@ -18,6 +18,7 @@ import {Images} from '../../../../common/Assets/Images';
 import Search from '../../../../common/Search/Search';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import {useNavigate} from 'react-router-dom';
 
 export const ListTravelAgent = () => {
   const [total, setTotal] = useState(0);
@@ -25,6 +26,7 @@ export const ListTravelAgent = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -78,7 +80,7 @@ export const ListTravelAgent = () => {
               <TableCell>
                 <DeleteForeverIcon color="warning"/>
               </TableCell>
-              <TableCell>
+              <TableCell onClick={()=> navigate('/admin/users/agents/1')}>
                 <Tooltip title={'Profile'}>
                   <IconButton style={{backgroundColor: '#f5f4f4'}}>
                     <ArrowForwardIcon color="success"/>
