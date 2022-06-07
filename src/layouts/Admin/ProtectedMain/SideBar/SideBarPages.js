@@ -12,7 +12,7 @@ export const pages = [
     icon: <AppSelectIcon />,
   },
   {
-    title: 'User Management',
+    title: 'Users',
     href: '',
     visible: true,
     index: 1,
