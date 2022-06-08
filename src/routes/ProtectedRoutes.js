@@ -3,6 +3,10 @@ import {ListTravelAgent} from '../layouts/Admin/UserManagement/TravelAgent/ListT
 import {ListTourGuides} from '../layouts/Admin/UserManagement/TourGuides/ListTourGuides';
 import {ListAnnouncement} from '../layouts/Admin/Activities/Announcement/ListAnnouncement';
 import TravelAgentDetail from '../layouts/Admin/UserManagement/TravelAgent/TravelAgentDetail';
+import Calender from '../layouts/Admin/Activities/Calender/Calender';
+import TrackVehicle from '../layouts/Admin/Activities/TrackVehicle/TrackVehicle';
+import Itinerary from '../layouts/Admin/Activities/Itinerary/Itinerary';
+import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDetail';
 
 export const protectedRoutes = [
   {
@@ -24,6 +28,18 @@ export const protectedRoutes = [
     component: <ListTourGuides />,
   },
   {
+    primaryText: 'Itinerary',
+    path: '/admin/activities/itinerary',
+    authorized: [''],
+    component: <Itinerary />,
+  },
+  {
+    primaryText: 'Itinerary Detail',
+    path: '/admin/activities/itinerary-detail',
+    authorized: [''],
+    component: <ItineraryDetail />,
+  },
+  {
     primaryText: 'Announcement list',
     path: '/admin/activities/announcements',
     authorized: [''],
@@ -34,5 +50,17 @@ export const protectedRoutes = [
     path: '/admin/users/agents/:id',
     authorized: [''],
     component: <TravelAgentDetail />,
+  },
+  {
+    primaryText: 'Calender',
+    path: '/admin/users/calender',
+    authorized: [''],
+    component: <Calender />,
+  },
+  {
+    primaryText: 'Calender',
+    path: '/admin/users/vehicle',
+    authorized: [''],
+    component: <TrackVehicle />,
   },
 ];

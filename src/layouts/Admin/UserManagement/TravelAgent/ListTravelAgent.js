@@ -19,10 +19,14 @@ import Search from '../../../../common/Search/Search';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {useNavigate} from 'react-router-dom';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import Badge from '@mui/material/Badge';
+import ListNotification from '../../../../common/Notification/ListNotification';
 
 export const ListTravelAgent = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
+  const [open, setOpen] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
@@ -41,9 +45,25 @@ export const ListTravelAgent = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(1);
   };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Container>
-      <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>User</Typography>
+      <div style={{display: 'flex'}}>
+        <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>User</Typography>
+        <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25, marginTop: 5}}>
+          <Badge badgeContent={4} color="primary">
+            <NotificationsNoneIcon style={{color: 'gray'}} onClick={() => handleClickOpen()}/>
+          </Badge>
+        </IconButton>
+      </div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
         <Typography style={{fontWeight: 700, color: '#4F4B4B', marginTop: 10}}>Travel Agent</Typography>
         <Search placeholder="Search..."/>
@@ -80,7 +100,7 @@ export const ListTravelAgent = () => {
               <TableCell>
                 <DeleteForeverIcon color="warning"/>
               </TableCell>
-              <TableCell onClick={()=> navigate('/admin/users/agents/1')}>
+              <TableCell onClick={() => navigate('/admin/users/agents/1')}>
                 <Tooltip title={'Profile'}>
                   <IconButton style={{backgroundColor: '#f5f4f4'}}>
                     <ArrowForwardIcon color="success"/>
@@ -128,6 +148,7 @@ export const ListTravelAgent = () => {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      <ListNotification handleAction={handleClose} open={open}/>
     </Container>
   );
 };

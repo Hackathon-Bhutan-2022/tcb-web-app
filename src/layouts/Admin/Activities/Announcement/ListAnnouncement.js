@@ -20,7 +20,7 @@ export const ListAnnouncement = () => {
       <div style={{display: 'flex', justifyContent: 'space-between'}}>
         <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>Activities</Typography>
         <Button variant={'contained'} style={{textTransform: 'none', height: 35, backgroundColor: '#058178'}}
-        onClick={()=> handleClickOpen()}>+ Add announcement</Button>
+                onClick={() => handleClickOpen()}>+ Add announcement</Button>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
         <Typography style={{fontWeight: 700, color: '#4F4B4B', marginTop: 10}}>Announcement</Typography>
