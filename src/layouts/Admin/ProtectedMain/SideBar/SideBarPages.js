@@ -49,7 +49,7 @@ export const pages = [
         title: 'Itinerary',
         href: '/admin/activities/itinerary',
         visible: true,
-        index: 1,
+        index: 5,
         authorized: 'false',
       },
       {
