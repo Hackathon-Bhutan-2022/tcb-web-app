@@ -4,6 +4,10 @@ import Check from '@mui/icons-material/Check';
 import PropTypes from 'prop-types';
 import StepConnector, {stepConnectorClasses} from '@mui/material/StepConnector';
 import {itinerarySteps} from './Stepper';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+import InfoIcon from '@mui/icons-material/Info';
+import AssistantDirectionIcon from '@mui/icons-material/AssistantDirection';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const QontoStepIconRoot = styled('div')(({theme, ownerState}) => ({
   color: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#eaeaf0',
@@ -101,13 +105,16 @@ const ColorlibStepIconRoot = styled('div')(({theme, ownerState}) => ({
 export function ColorlibStepIcon(props) {
   const {active, completed, className} = props;
 
-  const icons = itinerarySteps.map(function(someValue, index) {
-    return {[index + 1]: `Day ${index + 1}`};
-  });
+  const icons = {
+    1: <InfoIcon/>,
+    2: <AssistantDirectionIcon/>,
+    3: <PeopleAltIcon/>,
+    4: <SummarizeIcon/>,
+  }
 
   return (
     <ColorlibStepIconRoot ownerState={{completed, active}} className={className}>
-      {itinerarySteps.map((val, index) => icons[index][String(props.icon)])}
+      {icons[String(props.icon)]}
     </ColorlibStepIconRoot>
   );
 }

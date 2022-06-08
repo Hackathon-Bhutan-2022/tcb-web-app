@@ -62,7 +62,11 @@ export default function SignUp() {
     if (file) {
       const formData = o2f({image: file?.[0]}, null, null, 'picture');
       imageServices(formData).then(res => {
-        setFieldValue('profile.picture_url', res?.url);
+        if (roleId === 'agent') {
+          setFieldValue('profile.logo_url', res?.url);
+        } else {
+          setFieldValue('profile.picture_url', res?.url);
+        }
       });
     }
   };
@@ -124,7 +128,7 @@ export default function SignUp() {
                            accept="image/*" type="file"
                            onChange={(e) => handleLogoUpload(e.currentTarget?.files, setFieldValue)}
                     />
-                    {!values?.profile?.picture_url ?
+                    {(!values?.profile?.picture_url || !values?.profile?.logo_url) ?
                       <>
                         <UploadIcon style={{color: 'white'}}/>
                         <Typography fontSize="small" fontWeight={300}
@@ -132,7 +136,8 @@ export default function SignUp() {
                           upload</Typography>
                       </>
                       :
-                      <img src={values?.profile?.picture_url} width={100} height={100} alt=""/>
+                      <img src={values?.profile?.picture_url || values?.profile?.logo_url} width={100} height={100}
+                           alt=""/>
                     }
                   </label>
                 </div>

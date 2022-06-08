@@ -1,30 +1,31 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Grid} from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import {StateContext} from '../../../../store';
 
 export default function SummaryItinerary(props) {
-  const loop = [1, 2, 3];
+  const loop = [1, 2];
+  const {values} = useContext(StateContext);
+
   return (
     <Grid container spacing={2}>
-      <Grid item lg={3.5} md={3.5} sm={3.5} xs={12} />
+      <Grid item lg={3.5} md={3.5} sm={3.5} xs={12}/>
       <Grid item lg={5} md={5} sm={5} xs={12}>
         <Typography fontSize={20} fontWeight={700} sx={{mt: 1}} align={'center'}>Summary</Typography>
-        {loop.map(value => (
-          <>
-            <Typography fontSize={14} sx={{mt: 1}} align={'left'}>Day 1</Typography>
-            <Typography fontSize={16} fontWeight={700} align={'left'}>Hike to Taktshang Monastry</Typography>
-            <Typography fontSize={14} fontWeight={700} sx={{color: '#8d8d8d'}} align={'left'}>Paro</Typography>
+        {values?.itinerary_items_attributes?.map((item, index) => (
+          <div key={index}>
+            <Typography fontSize={14} sx={{mt: 1}} align={'left'}>Day {index + 1}</Typography>
+            <Typography fontSize={16} fontWeight={700} align={'left'}>{item?.title || '---'}</Typography>
+            <Typography fontSize={14} fontWeight={700} sx={{color: '#8d8d8d'}}
+                        align={'left'}>{item?.destination || '---'}</Typography>
             <Typography fontSize={14} sx={{mt: 1, color: '#747272'}} align={'left'}>
-              The hike to the temple takes around five
-              hours and travellers will pass through a dense forest and emerge on the edge of a rocky chasm, where they
-              will
-              need to climb down to a trickling waterfall and then back up the cliff face to the monastery on the other
-              side.
+              {item?.description || '---'}
             </Typography>
             <Stack sx={{flexDirection: 'row'}}>
-              {loop.map(value => (
+              {item?.pictures?.map((image, ind) => (
                 <Stack
+                  key={ind}
                   sx={{
                     backgroundColor: '#fff',
                     width: 90,
@@ -34,15 +35,15 @@ export default function SummaryItinerary(props) {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
                   }}>
                   <img draggable={'false'} style={{objectFit: 'cover', margin: 4}}
-                       src={'https://picsum.photos/id/1000/1000'}
-                       alt="" />
+                       src={image || 'https://picsum.photos/id/1000/1000'}
+                       alt=""/>
                 </Stack>
               ))}
             </Stack>
             <Typography sx={{mt: 3}} fontSize={16} fontWeight={700} align={'left'}>Accommodation</Typography>
             <Stack sx={{flexDirection: 'row', alignItems: 'center', mt: 2}}>
               <img width={50} style={{borderRadius: '50%'}} src={'https://picsum.photos/id/4/1000/1000'}
-                   alt="accommodation" />
+                   alt="accommodation"/>
               <Typography sx={{ml: 1}} fontSize={16} fontWeight={700} align={'left'}>Parp koichu</Typography>
             </Stack>
             <Stack sx={{flexDirection: 'row', mb: 5}}>
@@ -58,14 +59,14 @@ export default function SummaryItinerary(props) {
                   }}>
                   <img draggable={'false'} style={{objectFit: 'cover', margin: 4}}
                        src={'https://picsum.photos/id/12/1000/1000'}
-                       alt="" />
+                       alt=""/>
                 </Stack>
               ))}
             </Stack>
-          </>
+          </div>
         ))}
       </Grid>
-      <Grid item lg={3} md={3} sm={3} xs={12} />
+      <Grid item lg={3} md={3} sm={3} xs={12}/>
     </Grid>
   );
 }

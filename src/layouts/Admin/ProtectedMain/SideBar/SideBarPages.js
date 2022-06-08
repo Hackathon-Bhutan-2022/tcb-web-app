@@ -10,7 +10,7 @@ export const pages = [
     href: '/admin',
     visible: true,
     index: 1,
-    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
     icon: <AppSelectIcon/>,
   },
   {
@@ -18,7 +18,7 @@ export const pages = [
     href: '/admin/search',
     visible: true,
     index: 2,
-    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
     icon: <Search/>,
   },
   {
@@ -50,7 +50,7 @@ export const pages = [
     href: '',
     visible: true,
     index: 4,
-    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
     icon: <Calendar/>,
     children: [
       {
@@ -58,14 +58,14 @@ export const pages = [
         href: '/admin/activities/itinerary',
         visible: true,
         index: 1,
-        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+        authorized: ['Portal Admin', 'Tour Agency'],
       },
       {
         title: 'My Itinerary',
         href: '/admin/activities/my/itinerary',
         visible: true,
         index: 2,
-        authorized: 'false',
+        authorized: ['Tour Guide'],
       },
       {
         title: 'Announcements',
@@ -79,14 +79,14 @@ export const pages = [
         href: '/admin/users/calender',
         visible: true,
         index: 4,
-        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
       },
       {
         title: 'Track Vehicles',
         href: '/admin/users/vehicle',
         visible: true,
         index: 5,
-        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
       },
     ]
   },

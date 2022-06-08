@@ -5,11 +5,9 @@ import {ListAnnouncement} from '../layouts/Admin/Activities/Announcement/ListAnn
 import TravelAgentDetail from '../layouts/Admin/UserManagement/TravelAgent/TravelAgentDetail';
 import Calender from '../layouts/Admin/Activities/Calender/Calender';
 import TrackVehicle from '../layouts/Admin/Activities/TrackVehicle/TrackVehicle';
-import Itinerary from '../layouts/Admin/Activities/Itinerary/Itinerary';
 import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDetail';
 import SearchComponent from '../layouts/Admin/SearchComponent/SearchComponent';
 import ItineraryStepper from '../layouts/Admin/Activities/Itinerary/ItineraryStepper';
-import AddItinerary from '../layouts/Admin/Activities/Itinerary/AddItinerary';
 import {MyItinerary} from '../layouts/Admin/Activities/Itinerary/MyItinerary/MyItinerary';
 import {DetailRequest} from '../layouts/Admin/SearchComponent/DetailRequest';
 
@@ -18,84 +16,78 @@ export const protectedRoutes = [
     primaryText: 'Dashboard',
     path: '/admin',
     authorized: [''],
-    component: <Dashboard />,
+    component: <Dashboard/>,
   },
   {
     primaryText: 'Admin search',
     path: '/admin/search',
     authorized: [''],
-    component: <SearchComponent />,
+    component: <SearchComponent/>,
   },
   {
     primaryText: 'Travel agent list',
     path: '/admin/users/agents',
     authorized: [''],
-    component: <ListTravelAgent />,
+    component: <ListTravelAgent/>,
   },
   {
     primaryText: 'Tour Guide list',
     path: '/admin/users/tour-guides',
     authorized: [''],
-    component: <ListTourGuides />,
-  },
-  {
-    primaryText: 'Itinerary',
-    path: '/admin/activities/itinerary',
-    authorized: [''],
-    component: <Itinerary />,
+    component: <ListTourGuides/>,
   },
   {
     primaryText: 'Add Itinerary',
     path: '/admin/itinerary/add',
     authorized: [''],
-    component: <AddItinerary />,
+    component: <ItineraryStepper/>,
   },
   {
     primaryText: 'Add Itinerary Stepper',
     path: '/admin/itinerary/add/:id',
     authorized: [''],
-    component: <ItineraryStepper />,
+    component: <ItineraryStepper/>,
   },
   {
-    primaryText: 'Itinerary Detail',
-    path: '/admin/activities/itinerary-detail',
+    primaryText: 'Itineraries',
+    path: '/admin/activities/itinerary',
     authorized: [''],
-    component: <ItineraryDetail />,
+    component: <ItineraryDetail/>,
   },
   {
     primaryText: 'Announcement list',
     path: '/admin/activities/announcements',
     authorized: [''],
-    component: <ListAnnouncement />,
+    component: <ListAnnouncement/>,
   },
   {
     primaryText: 'Travel Agent Detail',
     path: '/admin/users/agents/:id',
     authorized: [''],
-    component: <TravelAgentDetail />,
+    component: <TravelAgentDetail/>,
   },
   {
     primaryText: 'Calender',
     path: '/admin/users/calender',
     authorized: [''],
-    component: <Calender />,
+    component: <Calender/>,
   },
   {
     primaryText: 'Calender',
     path: '/admin/users/vehicle',
     authorized: [''],
-    component: <TrackVehicle />,
+    component: <TrackVehicle/>,
   },
   {
     primaryText: 'My Itinerary',
     path: '/admin/activities/my/itinerary',
     authorized: [''],
-    component: <MyItinerary />,
+    component: <MyItinerary/>,
   },
   {
     primaryText: 'Detail Service',
     path: '/admin/detail/service',
     authorized: [''],
-    component: <DetailRequest />,
+    component: <DetailRequest/>,
   },
 ];
