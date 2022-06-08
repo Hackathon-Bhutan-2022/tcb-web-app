@@ -5,10 +5,12 @@ import {logout} from '../services/AuthServices';
 
 axios.defaults.baseURL = config.API_URL;
 axios.defaults.timeout = 0;
+axios.defaults.withCredentials = true;
 
 export const ApiUtils = {
   axios: axios.create({
     baseURL: config.API_URL,
+    withCredentials: true,
     timeout: 0,
   }),
   dispatch: null,
@@ -24,10 +26,6 @@ const changeLoaderStatus = () => {
 // Add a request interceptor
 ApiUtils.axios.interceptors.request.use(
   function (config) {
-    const token = JSON.parse(localStorage.getItem('token'));
-    if (token != null) {
-      config.headers.Authorization = token;
-    }
     ApiUtils.dispatch({type: IS_LOADING, payload: {isLoad: ApiUtils.state.loaderState}});
     return config;
   },

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {AppBar, Box, CssBaseline, Toolbar, Typography, useScrollTrigger, Zoom} from '@mui/material';
 import * as PropTypes from 'prop-types';
-import Fab from '@mui/material/Fab';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Images} from '../../../common/Assets/Images';
 import './Header.scss';
-import {Nav, NavItem, NavLink} from 'reactstrap';
 import PhoneMenu from './PhoneMenu';
+import {Link} from 'react-router-dom';
+import {StateContext} from '../../../store';
 
 function ScrollTop(props) {
   const {children, window} = props;
@@ -55,38 +54,39 @@ ScrollTop.propTypes = {
 };
 
 export default function Header(props) {
+  const {user} = useContext(StateContext);
   return (
     <React.Fragment>
-      <CssBaseline />
+      <CssBaseline/>
       <AppBar sx={{boxShadow: 'none', bgcolor: 'transparent', top: 10}} position="absolute">
-        <Toolbar className='headerContent'>
+        <Toolbar className="headerContent">
           <Box>
-            <img draggable={'false'} width={80} height={45} src={Images.logo} alt="site logo" />
+            <img draggable={'false'} width={80} height={45} src={Images.logo} alt="site logo"/>
           </Box>
-          <Box className='flex-center' sx={{display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}}}>
-            <Nav className='flex list-type' navbar>
-              <NavItem>
-                <NavLink href="/" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Travel Blogs</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Dashboard</Typography>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/login" className='text-decoration-none'>
-                  <Typography className='header-mr' color="secondary">Login</Typography>
-                </NavLink>
-              </NavItem>
-            </Nav>
-            {/*<Box>*/}
-            {/*  <ButtonContained text='Sign Up' onClick={() => navigate('/sign-up')} />*/}
-            {/*</Box>*/}
+          <Box className="flex-center" sx={{display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}}}>
+            <Box className="flex list-type">
+              <Box>
+                <Link to="/" className="text-decoration-none">
+                  <Typography className="header-mr" color="secondary">Travel Blogs</Typography>
+                </Link>
+              </Box>
+              {user?.authenticated ?
+                <Box>
+                  <Link to="/admin" className="text-decoration-none">
+                    <Typography className="header-mr" color="secondary">Dashboard</Typography>
+                  </Link>
+                </Box>
+                :
+                <Box>
+                  <Link to="/login" className="text-decoration-none">
+                    <Typography className="header-mr" color="secondary">Login</Typography>
+                  </Link>
+                </Box>
+              }
+            </Box>
           </Box>
           <Box sx={{display: {lg: 'none', md: 'none', sm: 'inline', xs: 'inline'}}}>
-            <PhoneMenu />
+            <PhoneMenu/>
           </Box>
         </Toolbar>
       </AppBar>

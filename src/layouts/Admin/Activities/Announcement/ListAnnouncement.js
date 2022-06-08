@@ -1,17 +1,32 @@
 import {Button, Card, Container, Grid, Typography} from '@mui/material';
 import Search from '../../../../common/Search/Search';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Images} from '../../../../common/Assets/Images';
 import AddAnnouncement from './AddAnnouncement';
+import {announcementServices} from '../../../../services/AnnouncementServices';
 
 export const ListAnnouncement = () => {
   const [open, setOpen] = React.useState(false);
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    fetchAnnouncements();
+  }, []);
+
+  const fetchAnnouncements = async () => {
+    await announcementServices('get').then(response => {
+      debugger
+    });
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (result) => {
+    if (result) {
+      fetchAnnouncements();
+    }
     setOpen(false);
   };
 

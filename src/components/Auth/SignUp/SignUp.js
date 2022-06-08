@@ -13,12 +13,21 @@ const Input = styled('input')({
   display: 'none',
 });
 
+const roles = [
+  {id: 2, value: 'agent'},
+  {id: 5, value: 'guide'},
+  {id: 6, value: 'hiring'},
+  {id: 4, value: 'hotel'},
+];
 export default function SignUp() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const {search} = useLocation();
+  const urlParams = new URLSearchParams(search);
+  const roleId = urlParams.get('as');
 
   const onSubmit = (values, {setSubmitting}) => {
-
+    values.role_id = roles.find(val => val.value === roleId)?.id;
+    setSubmitting(false);
   };
 
   return (

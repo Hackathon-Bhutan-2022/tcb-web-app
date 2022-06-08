@@ -1,0 +1,12 @@
+.preloader-wrapper {
+  .preloader {
+    @media only screen and (max-width: 680px) {
+      left: 20%;
+      top: 30%;
+    }
+    left: 43%;
+    top: 35%;
+    z-index: 999;
+    position: absolute;
+  }
+}

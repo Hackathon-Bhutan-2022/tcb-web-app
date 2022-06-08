@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Container,
   IconButton,
@@ -22,6 +22,7 @@ import {useNavigate} from 'react-router-dom';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Badge from '@mui/material/Badge';
 import ListNotification from '../../../../common/Notification/ListNotification';
+import {usersServices} from '../../../../services/UserServices';
 
 export const ListTravelAgent = () => {
   const [total, setTotal] = useState(0);
@@ -31,6 +32,16 @@ export const ListTravelAgent = () => {
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchTravelAgents();
+  }, []);
+
+  const fetchTravelAgents = async () => {
+    await usersServices('get', {role_id: 2}).then(response => {
+
+    });
+  };
 
   const handleChange = (event) => {
     setChecked(event.target.checked);

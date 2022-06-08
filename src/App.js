@@ -4,7 +4,7 @@ import useCombinedReducers from 'use-combined-reducers';
 import {ThemeProvider} from '@mui/material/styles';
 import {theme} from './Theme';
 import {DispatchContext, StateContext} from './store';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Home from './view/Home';
 import './assets/StyleSheets/_utility.scss';
 import {routes} from './routes/Routes';
@@ -22,6 +22,8 @@ import {
   userReducer
 } from './reducers';
 import {ApiUtils} from './utils/ApiUtils';
+import Notify from './common/Snackbar/Snackbar';
+import Loader from './common/Loader/Loader';
 
 function App() {
   const [state, dispatch] = useCombinedReducers({
@@ -43,6 +45,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <DispatchContext.Provider value={dispatch}>
         <StateContext.Provider value={state}>
+          <Notify/>
+          <Loader/>
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home/>}>
@@ -54,7 +58,9 @@ function App() {
                   />
                 ))}
               </Route>
-              <Route path="/admin" element={<ProtectedMain/>}>
+              <Route path="/admin"
+                     element={state?.user?.authenticated ? <ProtectedMain/> :
+                       <Navigate to={'/login'} replace/>}>
                 {protectedRoutes.map((route, index) => (
                   <Route
                     key={index}
