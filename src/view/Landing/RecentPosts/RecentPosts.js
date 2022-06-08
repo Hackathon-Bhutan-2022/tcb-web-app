@@ -37,7 +37,7 @@ export default function RecentPosts(props) {
     },
     {
       image: require('../../../assets/Images/singing.png'),
-      profile: require('../../../assets/Images/Zomba.png'),
+      profile: require('../../../assets/Images/buddha.png'),
       comment: '10',
       name: 'Sangay Wangmo',
       description: 'The music of Bhutan is an integral part of its culture and plays a leading role in transmitting social values. Traditional Bhutanese music includes a spectrum of subgenres, ranging from folk to religious song and music. Some genres of traditional Bhutanese music intertwine vocals, instrumentation, and theatre and dance, while others are mainly vocal or instrumental. The much older traditional genres are distinguished from modern popular music such as rigsar.',
