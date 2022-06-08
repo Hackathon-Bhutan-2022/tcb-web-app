@@ -43,7 +43,8 @@ export default function ListNotification({handleAction, open}) {
                 style={{fontWeight: 400}}>created a post on road condition from thimphu to phuentsholing</span>
               </Typography>
               <Typography style={{fontWeight: 400, fontSize: 12, marginLeft: 10, color: '#4F4B4B'}}>
-                12/12/2022, 10:00 AM</Typography>
+                12/12/2022, 10:00 AM
+              </Typography>
             </div>
           </div>
         </DialogContent>
