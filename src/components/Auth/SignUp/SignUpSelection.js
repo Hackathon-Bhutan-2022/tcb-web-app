@@ -25,18 +25,19 @@ export default function SignUpSelection({handleAction, open}) {
         <DialogTitle>{'Select Registration type'}</DialogTitle>
         <DialogContent style={{width: 400}}>
           <Card style={{padding: 20, textAlign: 'center', marginBottom: 10, cursor: 'pointer'}}
-                onClick={() => navigate('/sign-up')}>
+                onClick={() => navigate('/sign-up?as=agent')}>
             Travel Agent
           </Card>
           <Card style={{padding: 20, textAlign: 'center', marginBottom: 10, cursor: 'pointer'}}
-                onClick={() => navigate('/sign-up')}>
+                onClick={() => navigate('/sign-up?as=guide')}>
             Tour Guide
           </Card>
           <Card style={{padding: 20, textAlign: 'center', marginBottom: 10, cursor: 'pointer'}}
-                onClick={() => navigate('/sign-up')}>
+                onClick={() => navigate('/sign-up?as=hiring')}>
             Car / Bus hiring agency
           </Card>
-          <Card style={{padding: 20, textAlign: 'center', cursor: 'pointer'}} onClick={() => navigate('/sign-up')}>
+          <Card style={{padding: 20, textAlign: 'center', cursor: 'pointer'}}
+                onClick={() => navigate('/sign-up?as=hotel')}>
             Hotel Management
           </Card>
         </DialogContent>

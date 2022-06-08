@@ -2,9 +2,8 @@ import baseApi from '../utils/ApiUtils';
 
 const setAuthUser = (response, dispatch) => {
   const storage = localStorage;
-  const token = response.headers['authorization'];
   storage.setItem('user', JSON.stringify(response.data));
-  storage.setItem('token', JSON.stringify(token));
+  storage.setItem('token', JSON.stringify(true));
   dispatch({type: 'LOGIN', payload: response.data});
 };
 

@@ -79,7 +79,7 @@ export default function Login() {
                 <Typography sx={{color: '#fff', fontSize: 14, ml: 1, cursor: 'pointer'}}
                             onClick={() => navigate('/')}>back to home</Typography>
               </div>
-            </Form>)}
+            </Form>
           </Formik>
         </Card>
         <SignUpSelection open={open} handleAction={handleClose}/>
