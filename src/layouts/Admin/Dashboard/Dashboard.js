@@ -6,9 +6,11 @@ import {Images} from '../../../common/Assets/Images';
 import Search from '../../../common/Search/Search';
 import Badge from '@mui/material/Badge';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import ListNotification from '../../../common/Notification/ListNotification';
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(false);
+  const [show, setShow] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -16,15 +18,20 @@ export default function Dashboard() {
 
   const handleClose = () => {
     setOpen(false);
+    setShow(false)
+  };
+
+  const handleNotificationOpen = () => {
+    setShow(true);
   };
 
   return (
     <Container>
       <div style={{display: 'flex'}}>
         <Typography style={{fontWeight: 700, fontSize: 21, color: '#4F4B4B', marginBottom: 10}}>Dashboard</Typography>
-        <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25, marginTop: 5}}>
+        <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25}}>
           <Badge badgeContent={4} color="primary">
-            <NotificationsNoneIcon style={{}}/>
+            <NotificationsNoneIcon onClick={() => handleNotificationOpen()}/>
           </Badge>
         </IconButton>
       </div>
@@ -128,6 +135,7 @@ export default function Dashboard() {
         </Grid>
       </Grid>
       <AddAnnouncement open={open} handleAction={handleClose}/>
+      <ListNotification handleAction={handleClose} open={show}/>
     </Container>
   );
 }

@@ -21,6 +21,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {useNavigate} from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import ListNotification from '../../../../common/Notification/ListNotification';
 
 export const ListTourGuides = () => {
   const [total, setTotal] = useState(0);
@@ -29,6 +30,15 @@ export const ListTourGuides = () => {
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -49,7 +59,7 @@ export const ListTourGuides = () => {
         <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>User</Typography>
         <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25, marginTop: 5}}>
           <Badge badgeContent={4} color="primary">
-            <NotificationsNoneIcon style={{}}/>
+            <NotificationsNoneIcon onClick={() => handleClickOpen()}/>
           </Badge>
         </IconButton>
       </div>
@@ -110,6 +120,7 @@ export const ListTourGuides = () => {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      <ListNotification handleAction={handleClose} open={open}/>
     </Container>
   );
 };
