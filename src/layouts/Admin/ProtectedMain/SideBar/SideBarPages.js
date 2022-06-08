@@ -18,7 +18,7 @@ export const pages = [
     href: '/admin/search',
     visible: true,
     index: 2,
-    authorized: 'false',
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
     icon: <Search/>,
   },
   {
