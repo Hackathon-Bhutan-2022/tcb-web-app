@@ -19,7 +19,6 @@ export default function LandingComponents() {
             <AboutUs />
           </Grid>
           <Grid item lg={5.5} md={5.5} sm={5.5} xs={12}>
-            <Search placeholder={'Search...'} />
             <Stack sx={{mt: 2}}>
               <Announcement />
             </Stack>
