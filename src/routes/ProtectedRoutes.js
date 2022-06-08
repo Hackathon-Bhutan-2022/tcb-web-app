@@ -12,6 +12,7 @@ import ItineraryStepper from '../layouts/Admin/Activities/Itinerary/ItinerarySte
 import AddItinerary from '../layouts/Admin/Activities/Itinerary/AddItinerary';
 import {MyItinerary} from '../layouts/Admin/Activities/Itinerary/MyItinerary/MyItinerary';
 import {DetailRequest} from '../layouts/Admin/SearchComponent/DetailRequest';
+import {Listings} from '../layouts/Admin/Activities/Listings/Listings';
 
 export const protectedRoutes = [
   {
@@ -97,5 +98,11 @@ export const protectedRoutes = [
     path: '/admin/detail/service',
     authorized: [''],
     component: <DetailRequest />,
+  },
+  {
+    primaryText: 'Listings',
+    path: '/admin/activities/listings',
+    authorized: [''],
+    component: <Listings />,
   },
 ];

@@ -9,9 +9,11 @@ import Search from '../../../../common/Search/Search';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {Autocomplete, Button, Container, TextField} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import AddEvents from './AddEvents';
 
 export default function Calender() {
   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -19,6 +21,14 @@ export default function Calender() {
   const handleCloseAction = (result) => {
     setOpen(false);
   };
+
+  const handleClickOpen = () => {
+    setShow(true);
+  };
+  const handleclose = () => {
+    setShow(false);
+  };
+
   return (
     <Container className="App">
       <Stack sx={{mb: 3, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -46,7 +56,7 @@ export default function Calender() {
             renderInput={(params) => <TextField {...params} label="Month" />}
           />
           <Button startIcon={<AddIcon/>} variant={'contained'} sx={{backgroundColor: '#058178', width: 200, ml: 2, borderRadius: 25}}
-                  fullWidth>Add event</Button>
+                  fullWidth onClick={() => handleClickOpen()}>Add event</Button>
         </Stack>
       </Stack>
       <FullCalendar
@@ -64,6 +74,7 @@ export default function Calender() {
         eventColor={'#058178'}
       />
       <EventDetail open={open} handleClose={handleCloseAction} />
+      <AddEvents handleAction={handleclose} open={show}/>
     </Container>
   );
 }
