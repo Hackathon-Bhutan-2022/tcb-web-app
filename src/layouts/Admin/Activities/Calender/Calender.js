@@ -43,7 +43,7 @@ export default function Calender() {
             margin={'none'}
             size={'small'}
             sx={{width: 300}}
-            renderInput={(params) => <TextField {...params} label="Movie" />}
+            renderInput={(params) => <TextField {...params} label="Month" />}
           />
           <Button startIcon={<AddIcon/>} variant={'contained'} sx={{backgroundColor: '#058178', width: 200, ml: 2, borderRadius: 25}}
                   fullWidth>Add event</Button>
@@ -61,7 +61,7 @@ export default function Calender() {
         events={events}
         displayEventEnd="true"
         eventClick={handleOpen}
-        eventColor={'#' + Math.floor(Math.random() * 16777215).toString(16)}
+        eventColor={'#058178'}
       />
       <EventDetail open={open} handleClose={handleCloseAction} />
     </Container>

@@ -1,20 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Card, Container, Grid} from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import AddItinerary from './AddItinerary';
+import {useNavigate} from 'react-router-dom';
 
 export default function ItineraryDetail() {
+  const navigate = useNavigate();
   const itinerary = [1, 2, 4, 5];
-  const [show, setShow] = useState(false);
-
-  const handleOpen = () => {
-    setShow(true);
-  };
-  const handleCloseAction = (result) => {
-    setShow(false);
-  };
   return (
     <Container>
       <Stack sx={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -28,8 +21,10 @@ export default function ItineraryDetail() {
           }}>
           Itinerary Detail
         </Typography>
-        <Button onClick={handleOpen} variant={'contained'} sx={{height: 35, textTransform: 'none'}} color={'secondary'}>Add new
-          Itinerary</Button>
+        <Button onClick={() => navigate('/admin/itinerary/add')} variant={'contained'}
+                sx={{height: 35, textTransform: 'none'}} color={'secondary'}>
+          Add new Itinerary
+        </Button>
       </Stack>
       <Card className='card-shadow' sx={{p: 3, backgroundColor: '#F7F7F7', border: '2px solid #F0EFEF'}}>
         <Grid container spacing={2}>
@@ -67,7 +62,6 @@ export default function ItineraryDetail() {
           ))}
         </Grid>
       </Card>
-      <AddItinerary open={show} handleClose={handleCloseAction} />
     </Container>
   );
 }

@@ -8,6 +8,8 @@ import TrackVehicle from '../layouts/Admin/Activities/TrackVehicle/TrackVehicle'
 import Itinerary from '../layouts/Admin/Activities/Itinerary/Itinerary';
 import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDetail';
 import SearchComponent from '../layouts/Admin/SearchComponent/SearchComponent';
+import ItineraryStepper from '../layouts/Admin/Activities/Itinerary/ItineraryStepper';
+import AddItinerary from '../layouts/Admin/Activities/Itinerary/AddItinerary';
 
 export const protectedRoutes = [
   {
@@ -39,6 +41,18 @@ export const protectedRoutes = [
     path: '/admin/activities/itinerary',
     authorized: [''],
     component: <Itinerary />,
+  },
+  {
+    primaryText: 'Add Itinerary',
+    path: '/admin/itinerary/add',
+    authorized: [''],
+    component: <AddItinerary />,
+  },
+  {
+    primaryText: 'Add Itinerary Stepper',
+    path: '/admin/itinerary/add/:id',
+    authorized: [''],
+    component: <ItineraryStepper />,
   },
   {
     primaryText: 'Itinerary Detail',
