@@ -6,6 +6,8 @@ import './Header.scss';
 import PhoneMenu from './PhoneMenu';
 import {Link} from 'react-router-dom';
 import {StateContext} from '../../../store';
+import Button from '@mui/material/Button';
+import LoginIcon from '@mui/icons-material/Login';
 
 function ScrollTop(props) {
   const {children, window} = props;
@@ -58,16 +60,24 @@ export default function Header(props) {
           <Box className="flex list-type">
             <Box>
               <Link to="/" className="text-decoration-none">
-                <Typography className="header-mr" color="secondary">Travel Blogs</Typography>
+                <Typography fontWeight={700} className="header-mr hover" color="secondary">About</Typography>
+              </Link>
+            </Box>
+            <Box>
+              <Link to="/" className="text-decoration-none">
+                <Typography fontWeight={700} className="header-mr hover" color="secondary">Contact</Typography>
               </Link>
             </Box>
             {user?.authenticated ? <Box>
               <Link to="/admin" className="text-decoration-none">
-                <Typography className="header-mr" color="secondary">Dashboard</Typography>
+                <Typography fontWeight={700} className="header-mr" color="secondary">Dashboard</Typography>
               </Link>
             </Box> : <Box>
               <Link to="/login" className="text-decoration-none">
-                <Typography className="header-mr" color="secondary">Login</Typography>
+                <Button startIcon={<LoginIcon/>} variant={'contained'} sx={{height: 30, textTransform: 'none', backgroundColor: "#058178", borderRadius: 25}}>
+                  Login
+                </Button>
+                {/*<Typography fontWeight={700} className="header-mr" color="secondary">Login</Typography>*/}
               </Link>
             </Box>}
           </Box>

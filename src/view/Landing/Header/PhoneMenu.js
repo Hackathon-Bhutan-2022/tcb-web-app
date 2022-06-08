@@ -91,12 +91,12 @@ export default function PhoneMenu(props) {
         <Box sx={{ml: 2, mr: 2}}>
           <Box>
             <Link to="/" className="text-decoration-none">
-              <Typography sx={{mb: 2, color: '#2d2d2d'}} fontWeight={500}>Home</Typography>
+              <Typography sx={{mb: 2, color: '#2d2d2d'}} fontWeight={500}>About</Typography>
             </Link>
           </Box>
           <Box>
             <Typography className="text-decoration-none" onClick={() => scrollToTop('about')}>
-              <Typography sx={{mb: 2, color: '#2d2d2d'}} fontWeight={500} className="hand-cursor">About
+              <Typography sx={{mb: 2, color: '#2d2d2d'}} fontWeight={500} className="hand-cursor">Contact
                 us</Typography>
             </Typography>
           </Box>
@@ -133,7 +133,7 @@ export default function PhoneMenu(props) {
       <div>
         {['left'].map((anchor) => (
           <React.Fragment key={anchor}>
-            <MenuIcon className="hand-cursor" sx={{color: '#fff', fontSize: 37}}
+            <MenuIcon className="hand-cursor" sx={{color: '#5b5b5b', fontSize: 37}}
                       onClick={toggleDrawer(anchor, true)}>{anchor}</MenuIcon>
             <Drawer
               anchor={anchor}
