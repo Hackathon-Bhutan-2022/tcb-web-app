@@ -4,8 +4,15 @@
   justify-content: space-between;
   background-color: transparent;
   padding: 1%;
+  margin-right: 20px;
 }
 
 .header-mr {
   margin-right: 30px !important;
+}
+
+.hover {
+  &:hover {
+    color: #0165b1;
+  }
 }
