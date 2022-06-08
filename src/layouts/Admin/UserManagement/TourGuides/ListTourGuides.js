@@ -19,6 +19,8 @@ import Search from '../../../../common/Search/Search';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import {useNavigate} from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 export const ListTourGuides = () => {
   const [total, setTotal] = useState(0);
@@ -43,7 +45,14 @@ export const ListTourGuides = () => {
   };
   return (
     <Container>
-      <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>User</Typography>
+      <div style={{display: 'flex'}}>
+        <Typography style={{fontWeight: 700, fontSize: 24, color: '#4F4B4B', marginBottom: 10}}>User</Typography>
+        <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25, marginTop: 5}}>
+          <Badge badgeContent={4} color="primary">
+            <NotificationsNoneIcon style={{}}/>
+          </Badge>
+        </IconButton>
+      </div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
         <Typography style={{fontWeight: 700, color: '#4F4B4B', marginTop: 10}}>Travel Agent</Typography>
         <Search placeholder="Search..."/>

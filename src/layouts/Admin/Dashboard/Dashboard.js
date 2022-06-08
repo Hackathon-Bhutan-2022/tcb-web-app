@@ -1,9 +1,11 @@
 import React from 'react';
-import {Button, Card, Container, Grid, TextField, Typography} from '@mui/material';
+import {Button, Card, Container, Grid, IconButton, TextField, Typography} from '@mui/material';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
 import AddAnnouncement from '../Activities/Announcement/AddAnnouncement';
 import {Images} from '../../../common/Assets/Images';
 import Search from '../../../common/Search/Search';
+import Badge from '@mui/material/Badge';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(false);
@@ -18,7 +20,14 @@ export default function Dashboard() {
 
   return (
     <Container>
-      <Typography style={{fontWeight: 700, fontSize: 21, color: '#4F4B4B', marginBottom: 10}}>Dashboard</Typography>
+      <div style={{display: 'flex'}}>
+        <Typography style={{fontWeight: 700, fontSize: 21, color: '#4F4B4B', marginBottom: 10}}>Dashboard</Typography>
+        <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25, marginTop: 5}}>
+          <Badge badgeContent={4} color="primary">
+            <NotificationsNoneIcon style={{}}/>
+          </Badge>
+        </IconButton>
+      </div>
       <Grid container spacing={4}>
         <Grid item lg={4} xs={12}>
           <div style={{backgroundColor: '#F7F7F7', padding: '15px 10px', borderRadius: 10}}>
