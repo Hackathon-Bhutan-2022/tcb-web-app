@@ -3,10 +3,21 @@ import Badge from '@mui/material/Badge';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import React from 'react';
 import ListNotification from '../../../../../common/Notification/ListNotification';
-import {Images} from '../../../../../common/Assets/Images';
+import {notificationServices} from '../../../../../services/AnnouncementServices';
 
 export const MyItinerary = () => {
   const [open, setOpen] = React.useState(false);
+  const [notifications, setNotifications] = React.useState([]);
+
+  React.useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = async () => {
+    await notificationServices('get', null, {type: 'itinerary'}).then(response => {
+      setNotifications(response?.notifications);
+    });
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,7 +33,7 @@ export const MyItinerary = () => {
         <Typography style={{fontWeight: 700, fontSize: 21, color: '#4F4B4B', marginBottom: 10}}>My
           Itinerary</Typography>
         <IconButton style={{backgroundColor: '#EAE8E8', width: 30, height: 30, marginLeft: 25}}>
-          <Badge badgeContent={4} color="primary">
+          <Badge badgeContent={notifications?.length} color="primary">
             <NotificationsNoneIcon onClick={() => handleClickOpen()}/>
           </Badge>
         </IconButton>
@@ -74,8 +85,7 @@ export const MyItinerary = () => {
           </Card>
         </Grid>
       </Grid>
-
-      <ListNotification handleAction={handleClose} open={open}/>
+      <ListNotification handleAction={handleClose} open={open} notifications={notifications}/>
     </Container>
   );
 };

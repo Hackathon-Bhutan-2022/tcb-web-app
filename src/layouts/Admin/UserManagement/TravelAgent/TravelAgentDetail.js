@@ -124,7 +124,7 @@ export default function TravelAgentDetail() {
             <Card className="card-shadow" sx={{p: 2, mt: 2}}>
               <Typography fontSize={20} fontWeight={700}>Worked With</Typography>
               <Stack sx={{display: 'flex', flexDirection: 'row'}}>
-                {training.map(value => (
+                {training?.map(value => (
                   <Stack
                     sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 1, width: 100, mr: 1}}>
                     <img draggable={'false'} width={60} height={60} src={'https://picsum.photos/id/999/60/60'}
@@ -148,7 +148,7 @@ export default function TravelAgentDetail() {
             </Card>
             <Card className="card-shadow" sx={{p: 2, mt: 2}}>
               <Typography fontSize={20} fontWeight={700}>Skills</Typography>
-              {training.map(value => (
+              {training?.map(value => (
                 <Typography fontSize={15} sx={{color: '#4F4B4B'}}>
                   Teamwork
                 </Typography>
@@ -156,7 +156,7 @@ export default function TravelAgentDetail() {
             </Card>
             <Card className="card-shadow" sx={{p: 2, mt: 2}}>
               <Typography fontSize={20} fontWeight={700}>Interests</Typography>
-              {training.map(value => (
+              {training?.map(value => (
                 <Typography fontSize={15} sx={{color: '#4F4B4B'}}>
                   Watching Movie
                 </Typography>

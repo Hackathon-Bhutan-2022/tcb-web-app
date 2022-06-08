@@ -10,9 +10,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="right" ref={ref} {...props} />;
 });
 
-export default function ListNotification({handleAction, open}) {
+export default function ListNotification({handleAction, open, notifications = []}) {
   const navigation = useNavigate();
-  const notification = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
     <div>
       <Dialog
@@ -25,11 +25,11 @@ export default function ListNotification({handleAction, open}) {
       >
         <DialogContent style={{backgroundColor: '#c4c4c4'}}>
           <Typography style={{fontWeight: 600, fontSize: 24}}>Notifications</Typography>
-          {notification.map(value => (
+          {notifications.map(value => (
             <>
-              <div style={{display: 'flex'}} onClick={()=> navigation('/admin/detail/service')}>
+              <div style={{display: 'flex'}} onClick={() => navigation('/admin/detail/service')}>
                 <img src={Images?.bannerImage}
-                     style={{width: 50, objectFit: 'cover', borderRadius: 25, height: 50}} alt="" />
+                     style={{width: 50, objectFit: 'cover', borderRadius: 25, height: 50}} alt=""/>
                 <div>
                   <Typography style={{fontWeight: 600, fontSize: 14, marginLeft: 10}}>Pema Dorji <span
                     style={{fontWeight: 400}}>created a post on road condition from thimphu to phuentsholing</span>
@@ -38,7 +38,7 @@ export default function ListNotification({handleAction, open}) {
                     12/12/2022, 10:00 AM</Typography>
                 </div>
               </div>
-              <Divider style={{marginTop: 15, marginBottom: 15}} />
+              <Divider style={{marginTop: 15, marginBottom: 15}}/>
             </>
           ))}
         </DialogContent>
