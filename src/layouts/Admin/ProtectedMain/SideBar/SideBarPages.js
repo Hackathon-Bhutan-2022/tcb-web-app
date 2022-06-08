@@ -1,8 +1,8 @@
 import React from 'react';
 import AppSelectIcon from '@rsuite/icons/AppSelect';
 import User from '@rsuite/icons/legacy/User';
-import {LocalActivity} from '@mui/icons-material';
 import Calendar from '@rsuite/icons/Calendar';
+import {Search} from '@rsuite/icons';
 
 export const pages = [
   {
@@ -11,15 +11,23 @@ export const pages = [
     visible: true,
     index: 1,
     authorized: 'false',
-    icon: <AppSelectIcon />,
+    icon: <AppSelectIcon/>,
+  },
+  {
+    title: 'Search',
+    href: '/admin/search',
+    visible: true,
+    index: 2,
+    authorized: 'false',
+    icon: <Search/>,
   },
   {
     title: 'Users',
     href: '',
     visible: true,
-    index: 2,
+    index: 3,
     authorized: 'false',
-    icon: <User />,
+    icon: <User/>,
     children: [
       {
         title: 'Travel Agents',
@@ -41,9 +49,9 @@ export const pages = [
     title: 'Activities',
     href: '',
     visible: true,
-    index: 3,
+    index: 4,
     authorized: 'false',
-    icon: <Calendar />,
+    icon: <Calendar/>,
     children: [
       {
         title: 'Itinerary',

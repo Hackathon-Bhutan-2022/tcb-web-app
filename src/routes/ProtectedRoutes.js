@@ -7,6 +7,7 @@ import Calender from '../layouts/Admin/Activities/Calender/Calender';
 import TrackVehicle from '../layouts/Admin/Activities/TrackVehicle/TrackVehicle';
 import Itinerary from '../layouts/Admin/Activities/Itinerary/Itinerary';
 import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDetail';
+import SearchComponent from '../layouts/Admin/SearchComponent/SearchComponent';
 
 export const protectedRoutes = [
   {
@@ -14,6 +15,12 @@ export const protectedRoutes = [
     path: '/admin',
     authorized: [''],
     component: <Dashboard />,
+  },
+  {
+    primaryText: 'Admin search',
+    path: '/admin/search',
+    authorized: [''],
+    component: <SearchComponent />,
   },
   {
     primaryText: 'Travel agent list',
