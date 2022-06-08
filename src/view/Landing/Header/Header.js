@@ -49,10 +49,10 @@ export default function Header(props) {
   const {user} = useContext(StateContext);
   return (<React.Fragment>
     <CssBaseline/>
-    <AppBar sx={{boxShadow: 'none', bgcolor: 'transparent', top: 10}} position="absolute">
+    <AppBar sx={{boxShadow: 'none', bgcolor: 'transparent'}} position={'static'}>
       <Toolbar className="headerContent">
         <Box>
-          <img draggable={'false'} width={80} height={45} src={Images.logo} alt="site logo"/>
+          <img draggable={'false'} width={56} height={62} style={{marginLeft: 50}} src={Images.newLogo} alt="site logo"/>
         </Box>
         <Box className="flex-center" sx={{display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}}}>
           <Box className="flex list-type">
@@ -77,11 +77,6 @@ export default function Header(props) {
         </Box>
       </Toolbar>
     </AppBar>
-    {/*<Toolbar id="back-to-top-anchor" />*/}
-    {/*<ScrollTop {...props}>*/}
-    {/*  <Fab color="primary" size="small" aria-label="scroll back to top">*/}
-    {/*    <KeyboardArrowUpIcon sx={{color: '#fff'}} />*/}
-    {/*  </Fab>*/}
-    {/*</ScrollTop>*/}
+
   </React.Fragment>);
 }

@@ -4,12 +4,14 @@ import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 import {Divider, Typography} from '@mui/material';
 import {Images} from '../Assets/Images';
+import {useNavigate} from 'react-router-dom';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="right" ref={ref} {...props} />;
 });
 
 export default function ListNotification({handleAction, open}) {
+  const navigation = useNavigate();
   const notification = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div>
@@ -25,7 +27,7 @@ export default function ListNotification({handleAction, open}) {
           <Typography style={{fontWeight: 600, fontSize: 24}}>Notifications</Typography>
           {notification.map(value => (
             <>
-              <div style={{display: 'flex'}}>
+              <div style={{display: 'flex'}} onClick={()=> navigation('/admin/detail/service')}>
                 <img src={Images?.bannerImage}
                      style={{width: 50, objectFit: 'cover', borderRadius: 25, height: 50}} alt="" />
                 <div>
