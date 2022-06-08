@@ -82,10 +82,17 @@ export const pages = [
         authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
       },
       {
+        title: 'Listings',
+        href: '/admin/activities/listings',
+        visible: true,
+        index: 5,
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+      },
+      {
         title: 'Track Vehicles',
         href: '/admin/users/vehicle',
         visible: true,
-        index: 5,
+        index: 6,
         authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour Guide', 'Automobile Agencies'],
       },
     ]

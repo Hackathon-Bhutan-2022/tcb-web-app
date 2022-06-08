@@ -28,7 +28,7 @@ export default function TabsTrackVehicle() {
         <TabPanel value="1">
           <Stack sx={{display: 'flex', flexDirection: 'row'}}>
             <img draggable={'false'} width={120} height={90} style={{objectFit: 'cover'}}
-                 src={'https://picsum.photos/id/6/200/200'}
+                 src={require('../../../../assets/Images/car1.png')}
                  alt="vehicle" />
             <Stack sx={{display: 'flex', flexDirection: 'column'}}>
               <Typography fontSize={14} fontWeight={700} sx={{ml: 2}}><span

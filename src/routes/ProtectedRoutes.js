@@ -10,6 +10,7 @@ import SearchComponent from '../layouts/Admin/SearchComponent/SearchComponent';
 import ItineraryStepper from '../layouts/Admin/Activities/Itinerary/ItineraryStepper';
 import {MyItinerary} from '../layouts/Admin/Activities/Itinerary/MyItinerary/MyItinerary';
 import {DetailRequest} from '../layouts/Admin/SearchComponent/DetailRequest';
+import {Listings} from '../layouts/Admin/Activities/Listings/Listings';
 
 export const protectedRoutes = [
   {
@@ -89,5 +90,11 @@ export const protectedRoutes = [
     path: '/admin/detail/service',
     authorized: [''],
     component: <DetailRequest/>,
+  },
+  {
+    primaryText: 'Listings',
+    path: '/admin/activities/listings',
+    authorized: [''],
+    component: <Listings />,
   },
 ];

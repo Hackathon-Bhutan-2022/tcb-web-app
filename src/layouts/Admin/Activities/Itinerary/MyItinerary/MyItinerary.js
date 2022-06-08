@@ -40,7 +40,7 @@ export const MyItinerary = () => {
               <Typography style={{fontWeight: 400, fontSize: 12, color: 'red'}}>expired</Typography>
               <Typography style={{fontWeight: 400, fontSize: 12, color: 'green'}}>Active</Typography>
             </div>
-            <img src={Images?.bannerImage}
+            <img src={require('../../../../../assets/Images/punakha.png')}
                  style={{width: '100%', objectFit: 'cover', borderRadius: 5, height: 130, marginTop: 5}} alt=""/>
             <Typography style={{fontWeight: 400, fontSize: 13, marginTop: 10}}>
               Honeymoon in paradise

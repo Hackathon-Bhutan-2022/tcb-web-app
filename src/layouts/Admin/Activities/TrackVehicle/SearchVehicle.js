@@ -21,11 +21,11 @@ export default function SearchVehicle({open, handleClose}) {
         <Grid container spacing={2}>
           <Grid item lg={6} md={6} sm={6} xs={12}>
             <img draggable={'false'} width="100%" height={200} style={{objectFit: 'cover'}}
-                 src={'https://picsum.photos/id/5/200/200'} alt="event profile" />
+                 src={require('../../../../assets/Images/car.png')} alt="event profile" />
           </Grid>
           <Grid item lg={6} md={6} sm={6} xs={12}>
             <img draggable={'false'} width="100%" height={200} style={{objectFit: 'cover'}}
-                 src={'https://picsum.photos/id/5/200/200'} alt="event profile" />
+                 src={require('../../../../assets/Images/map.png')} alt="event profile" />
           </Grid>
         </Grid>
         <Card sx={{mt: 2}}>

@@ -54,8 +54,8 @@ export default function SearchComponent() {
         </IconButton>
       </div>
       <div style={{backgroundColor: '#F7F7F7', paddingTop: 25, paddingBottom: 25, marginTop: 55, borderRadius: 5}} align="center">
-        <img src={Images?.bannerImage}
-             style={{width: 720, objectFit: 'cover', height: 170, marginBottom: 25}} alt=""/>
+        <img src={require('../../../assets/Images/search-image.png')}
+             style={{objectFit: 'cover', marginBottom: 25}} alt=""/>
         <div style={{
           backgroundColor: '#141616E0',
           width: 670,
