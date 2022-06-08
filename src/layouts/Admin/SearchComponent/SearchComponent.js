@@ -62,7 +62,7 @@ export default function SearchComponent() {
           borderRadius: 10,
           padding: 15,
           position: 'absolute',
-          top: '35%',
+          top: '30%',
           left: '35%'
         }}>
           <div style={{display: 'flex'}}>

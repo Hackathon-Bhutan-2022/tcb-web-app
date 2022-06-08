@@ -10,6 +10,8 @@ import ItineraryDetail from '../layouts/Admin/Activities/Itinerary/ItineraryDeta
 import SearchComponent from '../layouts/Admin/SearchComponent/SearchComponent';
 import ItineraryStepper from '../layouts/Admin/Activities/Itinerary/ItineraryStepper';
 import AddItinerary from '../layouts/Admin/Activities/Itinerary/AddItinerary';
+import {MyItinerary} from '../layouts/Admin/Activities/Itinerary/MyItinerary/MyItinerary';
+import {DetailRequest} from '../layouts/Admin/SearchComponent/DetailRequest';
 
 export const protectedRoutes = [
   {
@@ -83,5 +85,17 @@ export const protectedRoutes = [
     path: '/admin/users/vehicle',
     authorized: [''],
     component: <TrackVehicle />,
+  },
+  {
+    primaryText: 'My Itinerary',
+    path: '/admin/activities/my/itinerary',
+    authorized: [''],
+    component: <MyItinerary />,
+  },
+  {
+    primaryText: 'Detail Service',
+    path: '/admin/detail/service',
+    authorized: [''],
+    component: <DetailRequest />,
   },
 ];
