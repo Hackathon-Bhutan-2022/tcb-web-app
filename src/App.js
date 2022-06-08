@@ -33,12 +33,6 @@ function App() {
     loaderState: useReducer(loaderStateReducer, true),
   });
 
-  // const isRouteEnabled = (userData, authorized) => {
-  //   const dataList = userData?.data?.relationships?.roles?.data;
-  //   const roles = includedObjectList(dataList, userData?.included);
-  //   return authorized?.length === 0 ? true : (isAuthorized(roles, authorized));
-  // };
-
   ApiUtils.dispatch = dispatch;
   ApiUtils.state = state;
   return (

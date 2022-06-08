@@ -1,31 +1,44 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import './SideNavBar.scss';
 import PropTypes from 'prop-types';
 import {Dropdown, Nav, Sidenav} from 'rsuite';
+import ExitIcon from '@rsuite/icons/Exit';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import {Images} from '../../../../common/Assets/Images';
 import {Hidden} from '@mui/material';
+import {DispatchContext} from '../../../../store';
+import {logout} from '../../../../services/AuthServices';
+import {SNACKBAR_OPEN} from '../../../../reducers';
 
 const SideNavBar = props => {
   const {pages, className, children, sub_children, onClose, ...rest} = props;
   const navigate = useNavigate();
+  const dispatch = useContext(DispatchContext);
 
   const navigationDetail = (route, index) => {
     navigate(route, {state: {index: index}});
+  };
+
+  const handleLogout = () => {
+    logout(dispatch, navigate).then(response => {
+      navigate('/');
+      dispatch({type: SNACKBAR_OPEN, payload: {isNotify: true, severity: 'success', message: 'Logout successful'}});
+    });
   };
 
   return (
     <div>
       <Hidden smUp={true}>
         <Stack sx={{backgroundColor: '#373856', ml: 2}} display={'flex'} flexDirection={'column'}>
-          <img draggable={'false'} style={{borderRadius: 25, width: 50, height: 50, objectFit: 'cover'}} src={Images.logo} alt=""/>
+          <img draggable={'false'} style={{borderRadius: 25, width: 50, height: 50, objectFit: 'cover'}}
+               src={Images.logo} alt=""/>
           <Typography fontSize={14} fontWeight={700} sx={{mt: 0.5}} color={'primary'}>Admin</Typography>
           <Typography fontSize={14} sx={{mt: 1, color: '#2b2b2b'}}>Sangay Tenzin</Typography>
         </Stack>
       </Hidden>
-      <Sidenav>
+      <Sidenav defaultOpenKeys={[2, 3]}>
         <Sidenav.Body>
           <Nav {...rest}>
             {pages?.map((page, index) => (
@@ -57,6 +70,11 @@ const SideNavBar = props => {
                   {page?.title}
                 </Nav.Item>
             ))}
+            <Nav.Item icon={<ExitIcon/>}
+                      style={{textDecoration: 'none', fontSize: 14, color: '#40404d'}}
+                      onClick={handleLogout}>
+              Logout
+            </Nav.Item>
           </Nav>
         </Sidenav.Body>
       </Sidenav>

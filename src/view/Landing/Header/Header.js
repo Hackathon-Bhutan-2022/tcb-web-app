@@ -13,40 +13,32 @@ function ScrollTop(props) {
   // will default to window.
   // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
-    disableHysteresis: true,
-    threshold: 100,
+    target: window ? window() : undefined, disableHysteresis: true, threshold: 100,
   });
 
   const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      '#back-to-top-anchor',
-    );
+    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor',);
 
     if (anchor) {
       anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
+        behavior: 'smooth', block: 'center',
       });
     }
   };
 
-  return (
-    <Zoom in={trigger}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{position: 'fixed', bottom: 16, right: 16}}
-      >
-        {children}
-      </Box>
-    </Zoom>
-  );
+  return (<Zoom in={trigger}>
+    <Box
+      onClick={handleClick}
+      role="presentation"
+      sx={{position: 'fixed', bottom: 16, right: 16}}
+    >
+      {children}
+    </Box>
+  </Zoom>);
 }
 
 ScrollTop.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
+  children: PropTypes.element.isRequired, /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
    */
@@ -55,47 +47,41 @@ ScrollTop.propTypes = {
 
 export default function Header(props) {
   const {user} = useContext(StateContext);
-  return (
-    <React.Fragment>
-      <CssBaseline/>
-      <AppBar sx={{boxShadow: 'none', bgcolor: 'transparent', top: 10}} position="absolute">
-        <Toolbar className="headerContent">
-          <Box>
-            <img draggable={'false'} width={80} height={45} src={Images.logo} alt="site logo"/>
-          </Box>
-          <Box className="flex-center" sx={{display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}}}>
-            <Box className="flex list-type">
-              <Box>
-                <Link to="/" className="text-decoration-none">
-                  <Typography className="header-mr" color="secondary">Travel Blogs</Typography>
-                </Link>
-              </Box>
-              {user?.authenticated ?
-                <Box>
-                  <Link to="/admin" className="text-decoration-none">
-                    <Typography className="header-mr" color="secondary">Dashboard</Typography>
-                  </Link>
-                </Box>
-                :
-                <Box>
-                  <Link to="/login" className="text-decoration-none">
-                    <Typography className="header-mr" color="secondary">Login</Typography>
-                  </Link>
-                </Box>
-              }
+  return (<React.Fragment>
+    <CssBaseline/>
+    <AppBar sx={{boxShadow: 'none', bgcolor: 'transparent', top: 10}} position="absolute">
+      <Toolbar className="headerContent">
+        <Box>
+          <img draggable={'false'} width={80} height={45} src={Images.logo} alt="site logo"/>
+        </Box>
+        <Box className="flex-center" sx={{display: {lg: 'flex', md: 'flex', sm: 'none', xs: 'none'}}}>
+          <Box className="flex list-type">
+            <Box>
+              <Link to="/" className="text-decoration-none">
+                <Typography className="header-mr" color="secondary">Travel Blogs</Typography>
+              </Link>
             </Box>
+            {user?.authenticated ? <Box>
+              <Link to="/admin" className="text-decoration-none">
+                <Typography className="header-mr" color="secondary">Dashboard</Typography>
+              </Link>
+            </Box> : <Box>
+              <Link to="/login" className="text-decoration-none">
+                <Typography className="header-mr" color="secondary">Login</Typography>
+              </Link>
+            </Box>}
           </Box>
-          <Box sx={{display: {lg: 'none', md: 'none', sm: 'inline', xs: 'inline'}}}>
-            <PhoneMenu/>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {/*<Toolbar id="back-to-top-anchor" />*/}
-      {/*<ScrollTop {...props}>*/}
-      {/*  <Fab color="primary" size="small" aria-label="scroll back to top">*/}
-      {/*    <KeyboardArrowUpIcon sx={{color: '#fff'}} />*/}
-      {/*  </Fab>*/}
-      {/*</ScrollTop>*/}
-    </React.Fragment>
-  );
+        </Box>
+        <Box sx={{display: {lg: 'none', md: 'none', sm: 'inline', xs: 'inline'}}}>
+          <PhoneMenu/>
+        </Box>
+      </Toolbar>
+    </AppBar>
+    {/*<Toolbar id="back-to-top-anchor" />*/}
+    {/*<ScrollTop {...props}>*/}
+    {/*  <Fab color="primary" size="small" aria-label="scroll back to top">*/}
+    {/*    <KeyboardArrowUpIcon sx={{color: '#fff'}} />*/}
+    {/*  </Fab>*/}
+    {/*</ScrollTop>*/}
+  </React.Fragment>);
 }

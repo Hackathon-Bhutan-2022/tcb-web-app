@@ -23,23 +23,27 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Badge from '@mui/material/Badge';
 import ListNotification from '../../../../common/Notification/ListNotification';
 import {usersServices} from '../../../../services/UserServices';
+import Moment from 'react-moment';
 
 export const ListTravelAgent = () => {
-  const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageIndex, setPageIndex] = useState(1);
   const [checked, setChecked] = React.useState(true);
   const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const [meta, setMeta] = useState({total_count: 0});
+  const [querySearch, setQuerySearch] = useState('');
 
   useEffect(() => {
     fetchTravelAgents();
-  }, []);
+  }, [page, querySearch]);
 
   const fetchTravelAgents = async () => {
-    await usersServices('get', {role_id: 2}).then(response => {
-
+    await usersServices('get', {role_id: 2, page: page, query: querySearch}).then(response => {
+      setMeta(response?.page_info);
+      setUsers(response?.users?.users);
     });
   };
 
@@ -77,7 +81,7 @@ export const ListTravelAgent = () => {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
         <Typography style={{fontWeight: 700, color: '#4F4B4B', marginTop: 10}}>Travel Agent</Typography>
-        <Search placeholder="Search..."/>
+        <Search placeholder="Search..." onChange={(value) => setQuerySearch(value)}/>
       </div>
       <TableContainer style={{borderRadius: 10}}>
         <Table size={'small'}>
@@ -92,67 +96,46 @@ export const ListTravelAgent = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>
-                <img src={Images?.bannerImage} style={{width: 25, height: 25, borderRadius: 25}}
-                     alt=""/> <span style={{marginLeft: 5, color: 'gray'}}>Etho Meto Tour & Treks</span>
-              </TableCell>
-              <TableCell style={{color: 'gray'}}>Taba, Thimphu</TableCell>
-              <TableCell style={{color: 'gray'}}>etometo@gmail.com</TableCell>
-              <TableCell style={{color: 'gray'}}>+975-17971633</TableCell>
-              <TableCell style={{color: 'gray'}}>25/5/2022</TableCell>
-              <TableCell>
-                <Switch
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{'aria-label': 'controlled'}}
-                />
-              </TableCell>
-              <TableCell>
-                <DeleteForeverIcon color="warning"/>
-              </TableCell>
-              <TableCell onClick={() => navigate('/admin/users/agents/1')}>
-                <Tooltip title={'Profile'}>
-                  <IconButton style={{backgroundColor: '#f5f4f4'}}>
-                    <ArrowForwardIcon color="success"/>
-                  </IconButton>
-                </Tooltip>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>
-                <img src={Images?.bannerImage} style={{width: 25, height: 25, borderRadius: 25}}
-                     alt=""/> <span style={{marginLeft: 5, color: 'gray'}}>Etho Meto Tour & Treks</span>
-              </TableCell>
-              <TableCell style={{color: 'gray'}}>Olakha, Thimphu</TableCell>
-              <TableCell style={{color: 'gray'}}>etometo@gmail.com</TableCell>
-              <TableCell style={{color: 'gray'}}>+975-17971633</TableCell>
-              <TableCell style={{color: 'gray'}}>25/5/2022</TableCell>
-              <TableCell>
-                <Switch
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{'aria-label': 'controlled'}}
-                />
-              </TableCell>
-              <TableCell>
-                <DeleteForeverIcon color="warning"/>
-              </TableCell>
-              <TableCell>
-                <Tooltip title={'Profile'}>
-                  <IconButton style={{backgroundColor: '#f5f4f4'}}>
-                    <ArrowForwardIcon color="success"/>
-                  </IconButton>
-                </Tooltip>
-              </TableCell>
-            </TableRow>
+            {users?.map((user, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <img src={user?.profile?.logo_url || Images?.bannerImage}
+                       style={{width: 25, height: 25, borderRadius: 25}}
+                       alt=""/>
+                  <span style={{marginLeft: 5, color: 'gray'}}>{user?.profile?.name || '---'}</span>
+                </TableCell>
+                <TableCell style={{color: 'gray'}}>{user?.profile?.address || '---'}</TableCell>
+                <TableCell style={{color: 'gray'}}>{user?.email || '---'}</TableCell>
+                <TableCell style={{color: 'gray'}}>+975-{user?.profile?.mobile_no}</TableCell>
+                <TableCell style={{color: 'gray'}}>
+                  <Moment format="DD/MM/YYYY">{user?.created_at || new Date()}</Moment>
+                </TableCell>
+                <TableCell>
+                  <Switch
+                    checked={user?.activated}
+                    onChange={handleChange}
+                    inputProps={{'aria-label': 'controlled'}}
+                  />
+                </TableCell>
+                <TableCell>
+                  <DeleteForeverIcon color="warning"/>
+                </TableCell>
+                <TableCell onClick={() => navigate(`/admin/users/agents/${user?.id}`)}>
+                  <Tooltip title={'Profile'}>
+                    <IconButton style={{backgroundColor: '#f5f4f4'}}>
+                      <ArrowForwardIcon color="success"/>
+                    </IconButton>
+                  </Tooltip>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 50, 100]}
         page={page - 1}
-        count={total}
+        count={meta?.total_count}
         rowsPerPage={rowsPerPage}
         component={Paper}
         style={{boxShadow: 'none', backgroundColor: 'transparent'}}

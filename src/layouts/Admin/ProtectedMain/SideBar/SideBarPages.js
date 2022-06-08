@@ -1,7 +1,6 @@
 import React from 'react';
 import AppSelectIcon from '@rsuite/icons/AppSelect';
 import User from '@rsuite/icons/legacy/User';
-import {LocalActivity} from '@mui/icons-material';
 import Calendar from '@rsuite/icons/Calendar';
 
 export const pages = [
@@ -10,30 +9,30 @@ export const pages = [
     href: '/admin',
     visible: true,
     index: 1,
-    authorized: 'false',
-    icon: <AppSelectIcon />,
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+    icon: <AppSelectIcon/>,
   },
   {
     title: 'Users',
     href: '',
     visible: true,
     index: 2,
-    authorized: 'false',
-    icon: <User />,
+    authorized: ['Portal Admin'],
+    icon: <User/>,
     children: [
       {
         title: 'Travel Agents',
         href: '/admin/users/agents',
         visible: true,
         index: 1,
-        authorized: 'false',
+        authorized: ['Portal Admin'],
       },
       {
         title: 'Tour Guides',
         href: '/admin/users/tour-guides',
         visible: true,
         index: 2,
-        authorized: 'false',
+        authorized: ['Portal Admin'],
       },
     ]
   },
@@ -42,36 +41,36 @@ export const pages = [
     href: '',
     visible: true,
     index: 3,
-    authorized: 'false',
-    icon: <Calendar />,
+    authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
+    icon: <Calendar/>,
     children: [
       {
         title: 'Itinerary',
         href: '/admin/activities/itinerary',
         visible: true,
         index: 1,
-        authorized: 'false',
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
       {
         title: 'Announcements',
         href: '/admin/activities/announcements',
         visible: true,
         index: 2,
-        authorized: 'false',
+        authorized: ['Portal Admin'],
       },
       {
         title: 'Calender',
         href: '/admin/users/calender',
         visible: true,
         index: 3,
-        authorized: 'false',
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
       {
         title: 'Track Vehicles',
         href: '/admin/users/vehicle',
         visible: true,
         index: 4,
-        authorized: 'false',
+        authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
     ]
   },

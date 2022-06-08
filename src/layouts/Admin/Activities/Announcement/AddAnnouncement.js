@@ -6,13 +6,15 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import {serialize as o2f} from 'object-to-formdata';
-import {TextField, Typography} from '@mui/material';
+import {Typography} from '@mui/material';
+import {TextField} from 'formik-mui';
 import UploadIcon from '@mui/icons-material/Upload';
 import {styled} from '@mui/material/styles';
 import {Field, Form, Formik} from 'formik';
 import {announcementServices} from '../../../../services/AnnouncementServices';
 import {DispatchContext} from '../../../../store';
 import {SNACKBAR_OPEN} from '../../../../reducers';
+import {imageServices} from '../../../../services/ImageServices';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -36,13 +38,19 @@ export default function AddAnnouncement({handleAction, open}) {
     announcementServices('post', formData).then(response => {
       handleAction(true);
       dispatch({
-        type: SNACKBAR_OPEN, payload: {isNotify: true, severity: 'success', message: 'Announcement created successfully'}
+        type: SNACKBAR_OPEN,
+        payload: {isNotify: true, severity: 'success', message: 'Announcement created successfully'}
       });
     });
   };
 
   const handlePosterUpload = (file, setFieldValue) => {
-    setFieldValue('image_url', file);
+    if (file) {
+      const formData = o2f({image: file?.[0]}, null, null, 'picture');
+      imageServices(formData).then(res => {
+        setFieldValue('image_url', res?.url);
+      });
+    }
   };
 
   return (
