@@ -1,9 +1,8 @@
-import {Container, IconButton, Typography} from '@mui/material';
+import {Button, Container, IconButton, Typography} from '@mui/material';
 import Badge from '@mui/material/Badge';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import React from 'react';
 import ListNotification from '../../../common/Notification/ListNotification';
-import {Images} from '../../../common/Assets/Images';
 
 export const DetailRequest = () => {
   const [open, setOpen] = React.useState(false);
@@ -44,13 +43,19 @@ export const DetailRequest = () => {
               cliff face to the monastery on the other side.
             </Typography>
             <div style={{marginTop: 15, marginBottom: 25}} align="left">
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5}} alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/taktshang1.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5}} alt=""/>
+              <img src={require('../../../assets/Images/taktshang2.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/taktshang3.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/taktshang4.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/taktshang5.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
             </div>
           </div>
@@ -67,13 +72,14 @@ export const DetailRequest = () => {
               cliff face to the monastery on the other side.
             </Typography>
             <div style={{marginTop: 15, marginBottom: 25}} align="left">
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5}} alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/tphu.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5}}
                    alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/tphu1.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/tphu2.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
             </div>
           </div>
@@ -81,10 +87,11 @@ export const DetailRequest = () => {
             <Typography style={{fontWeight: 700, fontSize: 14, textAlign: 'left'}}>Accomodation</Typography>
             <Typography style={{fontWeight: 500, fontSize: 12, textAlign: 'left'}}>Taj Tashi</Typography>
             <div style={{marginTop: 15, marginBottom: 25}} align="left">
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5}} alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/taj1.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/taj2.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
             </div>
           </div>
@@ -101,13 +108,14 @@ export const DetailRequest = () => {
               sculptures.
             </Typography>
             <div style={{marginTop: 15, marginBottom: 25}} align="left">
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5}} alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/punakha1.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5}}
                    alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/punakha2.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/punakha3.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
             </div>
           </div>
@@ -115,10 +123,11 @@ export const DetailRequest = () => {
             <Typography style={{fontWeight: 700, fontSize: 14, textAlign: 'left'}}>Accomodation</Typography>
             <Typography style={{fontWeight: 500, fontSize: 12, textAlign: 'left'}}>Hotel Noryang</Typography>
             <div style={{marginTop: 15, marginBottom: 25}} align="left">
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5}} alt=""/>
-              <img src={Images?.bannerImage}
-                   style={{width: 100, objectFit: 'cover', borderRadius: 2, height: 100, marginTop: 5, marginLeft: 10}}
+              <img src={require('../../../assets/Images/hotel1.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5}}
+                   alt=""/>
+              <img src={require('../../../assets/Images/hotel2.png')}
+                   style={{objectFit: 'cover', borderRadius: 2, marginTop: 5, marginLeft: 10}}
                    alt=""/>
             </div>
           </div>
@@ -131,6 +140,23 @@ export const DetailRequest = () => {
               some friends and also kept many photos and beautiful memories of Bhutan! And we look forward to seeing you
               again in this beautiful land of endless Enchantments! Tashi Delek!
             </Typography>
+          </div>
+          <div align="left" style={{marginTop: 15}}>
+            <Button variant={'outlined'}
+                    style={{
+                      textTransform: 'none',
+                      borderColor: '#0DCD15',
+                      color: '#0DCD15',
+                      width: 135
+                    }}>Accept</Button>
+            <Button variant={'outlined'}
+                    style={{
+                      textTransform: 'none',
+                      marginLeft: 10,
+                      borderColor: '#F50B0B',
+                      color: '#F50B0B',
+                      width: 135
+                    }}>Reject</Button>
           </div>
         </div>
       </div>
