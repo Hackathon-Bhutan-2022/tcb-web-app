@@ -2,6 +2,7 @@ import React from 'react';
 import AppSelectIcon from '@rsuite/icons/AppSelect';
 import User from '@rsuite/icons/legacy/User';
 import Calendar from '@rsuite/icons/Calendar';
+import {Search} from '@rsuite/icons';
 
 export const pages = [
   {
@@ -13,10 +14,18 @@ export const pages = [
     icon: <AppSelectIcon/>,
   },
   {
+    title: 'Search',
+    href: '/admin/search',
+    visible: true,
+    index: 2,
+    authorized: 'false',
+    icon: <Search/>,
+  },
+  {
     title: 'Users',
     href: '',
     visible: true,
-    index: 2,
+    index: 3,
     authorized: ['Portal Admin'],
     icon: <User/>,
     children: [
@@ -40,7 +49,7 @@ export const pages = [
     title: 'Activities',
     href: '',
     visible: true,
-    index: 3,
+    index: 4,
     authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
     icon: <Calendar/>,
     children: [
@@ -52,24 +61,31 @@ export const pages = [
         authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
       {
+        title: 'My Itinerary',
+        href: '/admin/activities/my/itinerary',
+        visible: true,
+        index: 2,
+        authorized: 'false',
+      },
+      {
         title: 'Announcements',
         href: '/admin/activities/announcements',
         visible: true,
-        index: 2,
+        index: 3,
         authorized: ['Portal Admin'],
       },
       {
         title: 'Calender',
         href: '/admin/users/calender',
         visible: true,
-        index: 3,
+        index: 4,
         authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
       {
         title: 'Track Vehicles',
         href: '/admin/users/vehicle',
         visible: true,
-        index: 4,
+        index: 5,
         authorized: ['Portal Admin', 'Tour Agency', 'Flight Ticket Operator', 'Hotel', 'Tour guide', 'Automobile Agencies'],
       },
     ]

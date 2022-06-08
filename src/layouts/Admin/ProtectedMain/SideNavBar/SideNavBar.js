@@ -43,14 +43,14 @@ const SideNavBar = props => {
           <Nav {...rest}>
             {pages?.map((page, index) => (
               page?.children?.length > 0 ?
-                <Dropdown eventKey={page.index} title={page?.title} icon={page?.icon}>
+                <Dropdown style={{backgroundColor: "#eeefef"}} eventKey={page.index} title={page?.title} icon={page?.icon}>
                   {page?.children?.map((child, childIndex) => (
                     child?.sub_children?.length > 0 ?
                       <Dropdown.Menu eventKey={`${page?.index}-${child?.index}`} title={child?.title} key={childIndex}>
                         {child?.sub_children?.map((sub, subIndex) => (
                           <Dropdown.Item eventKey={`${page?.index}-${child?.index}-${sub?.index}`}
                                          onClick={() => navigationDetail(sub?.href, sub?.index)}
-                                         key={subIndex} style={{fontSize: 14}}>
+                                         key={subIndex} style={{fontSize: 14, backgroundColor: "#eeefef"}}>
                             {sub?.title}
                           </Dropdown.Item>
                         ))}
@@ -58,14 +58,14 @@ const SideNavBar = props => {
                       :
                       <Dropdown.Item eventKey={`${page?.index}-${child?.index}`}
                                      onClick={() => navigationDetail(child?.href, child?.index)}
-                                     key={childIndex} style={{fontSize: 14}}>
+                                     key={childIndex} style={{fontSize: 14, backgroundColor: "#eeefef"}}>
                         {child?.title}
                       </Dropdown.Item>
                   ))}
                 </Dropdown>
                 :
                 <Nav.Item eventKey={page.index} icon={page?.icon} key={index}
-                          style={{textDecoration: 'none', fontSize: 14, color: '#A0A1AC'}}
+                          style={{textDecoration: 'none', fontSize: 14, backgroundColor: "#eeefef"}}
                           onClick={() => navigationDetail(page.href, page?.index)}>
                   {page?.title}
                 </Nav.Item>
