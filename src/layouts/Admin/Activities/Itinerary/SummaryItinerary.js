@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Grid} from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import {StateContext} from '../../../../store';
+import {useFormikContext} from 'formik';
 
 export default function SummaryItinerary(props) {
   const loop = [1, 2];
-  const {values} = useContext(StateContext);
+  const {values} = useFormikContext();
 
   return (
     <Grid container spacing={2}>
@@ -40,7 +40,7 @@ export default function SummaryItinerary(props) {
                 </Stack>
               ))}
             </Stack>
-            <Typography sx={{mt: 3}} fontSize={16} fontWeight={700} align={'left'}>Accommodation</Typography>
+            {/*<Typography sx={{mt: 3}} fontSize={16} fontWeight={700} align={'left'}>Accommodation</Typography>
             <Stack sx={{flexDirection: 'row', alignItems: 'center', mt: 2}}>
               <img width={50} style={{borderRadius: '50%'}} src={'https://picsum.photos/id/4/1000/1000'}
                    alt="accommodation"/>
@@ -62,7 +62,7 @@ export default function SummaryItinerary(props) {
                        alt=""/>
                 </Stack>
               ))}
-            </Stack>
+            </Stack>*/}
           </div>
         ))}
       </Grid>

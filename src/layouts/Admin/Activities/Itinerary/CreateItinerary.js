@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Autocomplete, Grid} from '@mui/material';
 import {TextField} from 'formik-mui';
 import {styled} from '@mui/material/styles';
@@ -24,12 +24,13 @@ const Input = styled('input')({
 });
 export default function CreateItinerary() {
   const {setFieldValue, values} = useFormikContext();
+  const [indexId, setIndex] = useState(0);
 
   const handleUpload = (file, index, images) => {
     if (file) {
       const formData = o2f({image: file?.[0]}, null, null, 'picture');
       imageServices(formData).then(res => {
-        setFieldValue(`itinerary_items_attributes[${index}].pictures`, [...images, res?.url]);
+        setFieldValue(`itinerary_items_attributes[${indexId}].pictures`, [...images, res?.url]);
       });
     }
   };
@@ -40,7 +41,7 @@ export default function CreateItinerary() {
         <Grid item lg={3} md={3} sm={3} xs={12}/>
         <Grid item lg={6} md={6} sm={6} xs={12}>
           {values?.itinerary_items_attributes?.map((item, index) => (
-            <Accordion key={index}>
+            <Accordion key={index} onChange={() => setIndex(index)} expanded={index === indexId}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon/>}
                 aria-controls="panel1a-content"
@@ -90,7 +91,8 @@ export default function CreateItinerary() {
                        placeholder={'Enter description'} fullWidth/>
                 <label htmlFor="contained-button-file">
                   <Input accept="image/*" id="contained-button-file"
-                         onChange={(e) => handleUpload(e?.target?.files, index, item?.pictures)} multiple type="file"/>
+                         onChange={(e) => handleUpload(e?.target?.files, index, values?.itinerary_items_attributes?.[indexId]?.pictures)}
+                         multiple type="file"/>
                   <Box className="hand-cursor" sx={{border: '2px dotted #A4A2A2', borderRadius: 2, mb: 2}}
                        align={'center'}>
                     <div align={'center'} style={{padding: 10}}>
