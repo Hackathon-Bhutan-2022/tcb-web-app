@@ -14,8 +14,10 @@ import AddEvents from './AddEvents';
 export default function Calender() {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [index, setIndex] = useState(0)
 
-  const handleOpen = () => {
+  const handleOpen = (event) => {
+    setIndex(event.event.index || 0)
     setOpen(true);
   };
   const handleCloseAction = (result) => {
@@ -73,7 +75,7 @@ export default function Calender() {
         eventClick={handleOpen}
         eventColor={'#058178'}
       />
-      <EventDetail open={open} handleClose={handleCloseAction} />
+      <EventDetail open={open} handleClose={handleCloseAction} index={index} />
       <AddEvents handleAction={handleclose} open={show}/>
     </Container>
   );
